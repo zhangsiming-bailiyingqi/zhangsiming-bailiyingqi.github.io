@@ -7,22 +7,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
-  <title>Tags | bailiyingqi</title>
-  <meta name="description" content="">
+  <title>Building a simple layered API in go ( gin gorm) | bailiyingqi</title>
+  <meta name="description" content="This guide demonstrates how to build a simple REST API in Go using a layered architecture consisting of Model, Service, Handler, and Router layers...">
 
-  <link rel="alternate" type="application/rss+xml" href="https://zhangsiming-bailiyingqi.github.io/tags/index.xml" title="bailiyingqi">
   
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Tags | bailiyingqi">
-  <meta name="twitter:description" content="A personal tech blog on Go, Kubernetes, Vue, and Linux—documenting my full-stack learning journey.">
-  <meta name="twitter:image" content="https://zhangsiming-bailiyingqi.github.io/">
+  <meta name="twitter:title" content="Building a Simple Layered API in Go (Gin &#43; GORM) | bailiyingqi">
+  <meta name="twitter:description" content="This guide demonstrates how to build a simple REST API in Go using a layered architecture consisting of Model, Service, Handler, and Router layers...">
+  <meta name="twitter:image" content="https://zhangsiming-bailiyingqi.github.io/images/layered-api.jpg">
 
   
-  <meta property="og:title" content="Tags | bailiyingqi">
-  <meta property="og:description" content="A personal tech blog on Go, Kubernetes, Vue, and Linux—documenting my full-stack learning journey.">
-  <meta property="og:image" content="https://zhangsiming-bailiyingqi.github.io/">
+  <meta property="og:title" content="Building a Simple Layered API in Go (Gin &#43; GORM) | bailiyingqi">
+  <meta property="og:description" content="This guide demonstrates how to build a simple REST API in Go using a layered architecture consisting of Model, Service, Handler, and Router layers...">
+  <meta property="og:image" content="https://zhangsiming-bailiyingqi.github.io/images/layered-api.jpg">
 
   
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -137,89 +136,299 @@
     
 
 
-<section class="tags">
 
-  <div class="tag__head">
+<div class="post-head">
+  <div class="container">
+    <div class="row">
 
-    <div class="container">
-      <div class="row">
-        <div class="col col-12">
+      
 
-          <h1 class="tag__title">Tags</h1>
-
-          <ul class="tag__list list-reset">
-            
-              <li class="tag__item"><a href="#golang" class="tag__link" data-tag="golang">golang</a></li>
-            
-              <li class="tag__item"><a href="#kubernetes" class="tag__link" data-tag="kubernetes">kubernetes</a></li>
-            
-              <li class="tag__item"><a href="#algorithm" class="tag__link" data-tag="algorithm">algorithm</a></li>
-            
-              <li class="tag__item"><a href="#english" class="tag__link" data-tag="english">english</a></li>
-            
-              <li class="tag__item"><a href="#interview" class="tag__link" data-tag="interview">interview</a></li>
-            
-              <li class="tag__item"><a href="#vue" class="tag__link" data-tag="vue">vue</a></li>
-            
-          </ul>
-
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="row">
-        <div class="col col-12">
-          <div class="tag__info">
-            <div class="tag__info-box">
-              <div class="tag__counter">
-                <span>3</span>
-                <small>Posts</small>
-              </div>
-              <h2 class="tag__name" id="golang">golang</h2>
-            </div>
-            <a class="top__link" href="#top">Return to top</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col col-12">
-          <div class="row">
-          
-            <div class="article col col-4 col-d-6 col-t-12">
-  <div class="article__inner">
-
-    <div class="article__head">
-        <time class="article__date" datetime="2025-08-26T02:00:00&#43;08:00">26 Aug 2025</time>
-
-        
-    
-        
-        <a class="article__image" href="/posts/go/layered-api/">
+      
+      <div class="col col-6 col-d-12">
+        <div class="post-image">
           <img class="lazy" data-src="https://zhangsiming-bailiyingqi.github.io/images/layered-api.jpg" alt="Building a Simple Layered API in Go (Gin &#43; GORM)">
-        </a>
-        
-    </div>
+        </div>
+      </div>
+      
 
-    <div class="article__content">
+      
 
-      <h2 class="article__title">
-        <a href="/posts/go/layered-api/">Building a Simple Layered API in Go (Gin &#43; GORM)</a>
-      </h2>
+      <div class="col col-6 col-d-12">
+        <div class="post__info ">
 
-      <p class="article__excerpt">This guide demonstrates how to build a simple REST API in Go using a layered architecture consisting of Model, Service, Handler, and Router layers...</p>
+          <div class="post__tags">
+            
+              <a href="https://zhangsiming-bailiyingqi.github.io/tags/golang/" class="post__tag">Golang</a>
+            
+          </div>
+
+          <h1 class="post__title">Building a Simple Layered API in Go (Gin &#43; GORM)</h1>
+
+          <div class="post__meta">
+            <a href="/about/" class="post__author-image">
+              <img class="lazy" data-src="/images/author.jpg" alt="Bailiyingqi">
+            </a>
+
+            <div class="post__meta-bottom">
+              <a class="post__author" href="/about/">Bailiyingqi</a>
+              <time class="post__date" datetime=" 2025-08-26T02:00:00&#43;08:00">26 Aug 2025</time>
+            </div>
+          </div>
+
+        </div>
+      </div>
 
     </div>
   </div>
 </div>
+
+
+<div class="container animate">
+
+  
+  <article class="post amimate">
+
+    <div class="post__content">
+      <p>This guide demonstrates how to build a simple REST API in Go using a <strong>layered architecture</strong> consisting of <strong>Model</strong>, <strong>Service</strong>, <strong>Handler</strong>, and <strong>Router</strong> layers. We’ll walk through an example: fetching news details by ID.</p>
+<p>By following this structure, your application becomes easier to <strong>maintain, extend, and test</strong>.</p>
+<h2 id="architecture-overview">Architecture Overview</h2>
+<p>A typical request flows through the system like this:</p>
+<p><img src="/images/layered-api-structure.jpg" alt=""></p>
+<p><strong>Explanation:</strong></p>
+<ol>
+<li>The <strong>client</strong> sends an HTTP request.</li>
+<li>The <strong>Router</strong> (Gin) matches the request to a handler function.</li>
+<li>The <strong>Handler</strong> validates input and calls the Service layer.</li>
+<li>The <strong>Service</strong> executes business logic and fetches data from the Model.</li>
+<li>The <strong>Model</strong> interacts with the database (via GORM).</li>
+<li>Results are propagated back through the layers, and a JSON response is returned.</li>
+</ol>
+<h2 id="model-layer-database-models">Model Layer (Database Models)</h2>
+<p>The <strong>Model layer</strong> defines the schema and interacts with the database.</p>
+<p><strong>File:</strong> <code>model/news.go</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">model</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// News represents a news item.</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">News</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">ID</span>      <span class="kt">uint</span>   <span class="s">`json:&#34;id&#34; gorm:&#34;primaryKey&#34;`</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Title</span>   <span class="kt">string</span> <span class="s">`json:&#34;title&#34;`</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Content</span> <span class="kt">string</span> <span class="s">`json:&#34;content&#34;`</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Source</span>  <span class="kt">string</span> <span class="s">`json:&#34;source&#34;`</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// NewNewsModel returns a new instance of the news model.</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">NewNewsModel</span><span class="p">(</span><span class="nx">db</span> <span class="o">*</span><span class="nx">gorm</span><span class="p">.</span><span class="nx">DB</span><span class="p">)</span> <span class="o">*</span><span class="nx">NewsModel</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">&amp;</span><span class="nx">NewsModel</span><span class="p">{</span><span class="nx">db</span><span class="p">:</span> <span class="nx">db</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">NewsModel</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">db</span> <span class="o">*</span><span class="nx">gorm</span><span class="p">.</span><span class="nx">DB</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// GetNewsByID retrieves a news article by its ID.</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">m</span> <span class="o">*</span><span class="nx">NewsModel</span><span class="p">)</span> <span class="nf">GetNewsByID</span><span class="p">(</span><span class="nx">id</span> <span class="kt">uint</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="nx">News</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">news</span> <span class="nx">News</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">err</span> <span class="o">:=</span> <span class="nx">m</span><span class="p">.</span><span class="nx">db</span><span class="p">.</span><span class="nf">First</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">news</span><span class="p">,</span> <span class="nx">id</span><span class="p">).</span><span class="nx">Error</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">&amp;</span><span class="nx">news</span><span class="p">,</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>👉 The <code>News</code> struct defines a table schema, while <code>GetNewsByID</code> performs a simple query using GORM.</p>
+<h2 id="service-layer-business-logic">Service Layer (Business Logic)</h2>
+<p>The <strong>Service layer</strong> contains application logic. It hides database operations behind business-friendly methods.</p>
+<p><strong>File:</strong> <code>service/news.go</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">service</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;getnews/pkg/model&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">NewsService</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">GetNewsDetail</span><span class="p">(</span><span class="nx">newsID</span> <span class="kt">uint</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="nx">model</span><span class="p">.</span><span class="nx">News</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">newsService</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">newsModel</span> <span class="o">*</span><span class="nx">model</span><span class="p">.</span><span class="nx">NewsModel</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">NewNewsService</span><span class="p">(</span><span class="nx">newsModel</span> <span class="o">*</span><span class="nx">model</span><span class="p">.</span><span class="nx">NewsModel</span><span class="p">)</span> <span class="nx">NewsService</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">&amp;</span><span class="nx">newsService</span><span class="p">{</span><span class="nx">newsModel</span><span class="p">:</span> <span class="nx">newsModel</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// GetNewsDetail fetches the news detail by ID.</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">newsService</span><span class="p">)</span> <span class="nf">GetNewsDetail</span><span class="p">(</span><span class="nx">newsID</span> <span class="kt">uint</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="nx">model</span><span class="p">.</span><span class="nx">News</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">s</span><span class="p">.</span><span class="nx">newsModel</span><span class="p">.</span><span class="nf">GetNewsByID</span><span class="p">(</span><span class="nx">newsID</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>👉 <code>NewsService</code> defines the contract. <code>newsService</code> implements it by calling the Model layer.</p>
+<h2 id="handler-layer-http-request-handling">Handler Layer (HTTP Request Handling)</h2>
+<p>The <strong>Handler layer</strong> receives HTTP requests, delegates to the Service, and returns responses.</p>
+<p><strong>File:</strong> <code>handler/news.go</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">handler</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;github.com/gin-gonic/gin&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;getnews/pkg/service&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;net/http&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;strconv&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">NewsHandler</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">NewService</span> <span class="nx">service</span><span class="p">.</span><span class="nx">NewsService</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">NewNewsHandler</span><span class="p">(</span><span class="nx">newsService</span> <span class="nx">service</span><span class="p">.</span><span class="nx">NewsService</span><span class="p">)</span> <span class="o">*</span><span class="nx">NewsHandler</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">&amp;</span><span class="nx">NewsHandler</span><span class="p">{</span><span class="nx">NewService</span><span class="p">:</span> <span class="nx">newsService</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// GetNewsDetail godoc</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// @Summary Get news details by news ID</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// @Description Get detailed information of a specific news item</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// @Tags news</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// @Param   news_id  path  int  true  &#34;News ID&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// @Success 200 {object} model.News</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// @Failure 400 {string} string &#34;Invalid ID&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// @Failure 404 {string} string &#34;News not found&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// @Router /news/{news_id} [get]</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">h</span> <span class="o">*</span><span class="nx">NewsHandler</span><span class="p">)</span> <span class="nf">GetNewsDetail</span><span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">newsID</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nf">Atoi</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nf">Param</span><span class="p">(</span><span class="s">&#34;news_id&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">c</span><span class="p">.</span><span class="nf">JSON</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusBadRequest</span><span class="p">,</span> <span class="nx">gin</span><span class="p">.</span><span class="nx">H</span><span class="p">{</span><span class="s">&#34;error&#34;</span><span class="p">:</span> <span class="s">&#34;Invalid news ID&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">news</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">h</span><span class="p">.</span><span class="nx">NewService</span><span class="p">.</span><span class="nf">GetNewsDetail</span><span class="p">(</span><span class="nb">uint</span><span class="p">(</span><span class="nx">newsID</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">c</span><span class="p">.</span><span class="nf">JSON</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusNotFound</span><span class="p">,</span> <span class="nx">gin</span><span class="p">.</span><span class="nx">H</span><span class="p">{</span><span class="s">&#34;error&#34;</span><span class="p">:</span> <span class="s">&#34;News not found&#34;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">c</span><span class="p">.</span><span class="nf">JSON</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusOK</span><span class="p">,</span> <span class="nx">news</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>👉 This function:</p>
+<ol>
+<li>Extracts <code>news_id</code> from the request path.</li>
+<li>Validates the parameter.</li>
+<li>Calls the Service to fetch data.</li>
+<li>Returns JSON with proper HTTP status codes.</li>
+</ol>
+<h2 id="router-setup">Router Setup</h2>
+<p>The <strong>Router</strong> ties everything together.</p>
+<p><strong>File:</strong> <code>router.go</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">router</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;github.com/gin-gonic/gin&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;getnews/pkg/service&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;getnews/pkg/handler&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;getnews/pkg/model&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;gorm.io/gorm&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// SetupRouter sets up routes and injects dependencies.</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">SetupRouter</span><span class="p">(</span><span class="nx">db</span> <span class="o">*</span><span class="nx">gorm</span><span class="p">.</span><span class="nx">DB</span><span class="p">)</span> <span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Engine</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">r</span> <span class="o">:=</span> <span class="nx">gin</span><span class="p">.</span><span class="nf">Default</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// Initialize models, services, and handlers</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">newsModel</span> <span class="o">:=</span> <span class="nx">model</span><span class="p">.</span><span class="nf">NewNewsModel</span><span class="p">(</span><span class="nx">db</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">newsService</span> <span class="o">:=</span> <span class="nx">service</span><span class="p">.</span><span class="nf">NewNewsService</span><span class="p">(</span><span class="nx">newsModel</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">newsHandler</span> <span class="o">:=</span> <span class="nx">handler</span><span class="p">.</span><span class="nf">NewNewsHandler</span><span class="p">(</span><span class="nx">newsService</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// Register routes</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">r</span><span class="p">.</span><span class="nf">GET</span><span class="p">(</span><span class="s">&#34;/news/:news_id&#34;</span><span class="p">,</span> <span class="nx">newsHandler</span><span class="p">.</span><span class="nx">GetNewsDetail</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">r</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>👉 Dependencies are wired explicitly:
+<code>Model → Service → Handler → Router</code>.</p>
+<h2 id="adding-a-new-api-step-by-step">Adding a New API (Step-by-Step)</h2>
+<p>When adding a new API endpoint, follow these steps:</p>
+<ol>
+<li>
+<p><strong>Model Layer</strong></p>
+<ul>
+<li>Define the struct fields.</li>
+<li>Add new database operations if needed.</li>
+</ul>
+</li>
+<li>
+<p><strong>Service Layer</strong></p>
+<ul>
+<li>Define a new method in the Service interface.</li>
+<li>Implement the method, calling the Model layer.</li>
+</ul>
+</li>
+<li>
+<p><strong>Handler Layer</strong></p>
+<ul>
+<li>Add a new Gin handler function.</li>
+<li>Validate input, call the Service, and return response.</li>
+</ul>
+</li>
+<li>
+<p><strong>Router</strong></p>
+<ul>
+<li>Register the new route with the corresponding handler.</li>
+</ul>
+</li>
+</ol>
+<p>This structure keeps data access, business logic, and request handling <strong>cleanly separated</strong>.</p>
+<h2 id="summary">Summary</h2>
+<p>We built a simple <strong>news API</strong> in Go using Gin and GORM with a layered architecture:</p>
+<ul>
+<li><strong>Model</strong>: Defines database schema and queries.</li>
+<li><strong>Service</strong>: Encapsulates business logic.</li>
+<li><strong>Handler</strong>: Handles HTTP requests and responses.</li>
+<li><strong>Router</strong>: Configures routes and wires dependencies.</li>
+</ul>
+<p>This pattern makes applications <strong>scalable, testable, and maintainable</strong>.</p>
+
+    </div>
+
+    <div class="post__share">
+  <ul class="share__list list-reset">
+    <li class="share__item">
+      <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=Building%20a%20Simple%20Layered%20API%20in%20Go%20%28Gin%20%2b%20GORM%29&url=https%3a%2f%2fzhangsiming-bailiyingqi.github.io%2fposts%2fgo%2flayered-api%2f" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>
+    </li>
+
+    <li class="share__item">
+      <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fzhangsiming-bailiyingqi.github.io%2fposts%2fgo%2flayered-api%2f"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>
+    </li>
+
+    <li class="share__item">
+      <a class="share__link share__pinterest"
+        href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fzhangsiming-bailiyingqi.github.io%2fposts%2fgo%2flayered-api%2f&amp;media=https%3a%2f%2fzhangsiming-bailiyingqi.github.io%2fimages%2flayered-api.jpg&amp;description=Building%20a%20Simple%20Layered%20API%20in%20Go%20%28Gin%20%2b%20GORM%29"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on Pinterest" aria-label="Share on Pinterest"><i class="ion ion-logo-pinterest"></i></a>
+    </li>
+
+    <li class="share__item">
+      <a class="share__link share__linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fzhangsiming-bailiyingqi.github.io%2fposts%2fgo%2flayered-api%2f&title=Building%20a%20Simple%20Layered%20API%20in%20Go%20%28Gin%20%2b%20GORM%29&summary=This%20guide%20demonstrates%20how%20to%20build%20a%20simple%20REST%20API%20in%20Go%20using%20a%20layered%20architecture%20consisting%20of%20Model%2c%20Service%2c%20Handler%2c%20and%20Router%20layers...&source=Building%20a%20Simple%20Layered%20API%20in%20Go%20%28Gin%20%2b%20GORM%29"
+      onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn" rel="nofollow"><i class="ion ion-logo-linkedin"></i></a>
+    </li>
+  </ul>
+</div>
+
+  </article>
+  
+
+</div>
+
+
+<div class="container">
+  <section class="related-posts animate">
+    <div class="row">
+      <div class="col col-12">
+        <div class="container__inner">
+          <div class="section__info">
+            <div class="section__head">
+              <h2 class="section__title">You may also like</h2>
+              
+                <a href="https://zhangsiming-bailiyingqi.github.io/tags/golang/" class="section__link related-tag">See all<span> Golang</span></a>
+              
+              </a>
+            </div>
+          </div>
+          <div class="row">
           
             <div class="article col col-4 col-d-6 col-t-12">
   <div class="article__inner">
@@ -279,328 +488,55 @@
         </div>
       </div>
     </div>
-
-  </div>
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="row">
-        <div class="col col-12">
-          <div class="tag__info">
-            <div class="tag__info-box">
-              <div class="tag__counter">
-                <span>2</span>
-                <small>Posts</small>
-              </div>
-              <h2 class="tag__name" id="kubernetes">kubernetes</h2>
-            </div>
-            <a class="top__link" href="#top">Return to top</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col col-12">
-          <div class="row">
-          
-            <div class="article col col-4 col-d-6 col-t-12">
-  <div class="article__inner">
-
-    <div class="article__head">
-        <time class="article__date" datetime="2025-08-26T01:00:00&#43;08:00">26 Aug 2025</time>
-
-        
-    
-        
-        <a class="article__image" href="/posts/kubernetes/operator/">
-          <img class="lazy" data-src="https://zhangsiming-bailiyingqi.github.io/images/operator.jpg" alt="Kubernetes Operator: A Beginner-Friendly Guide">
-        </a>
-        
-    </div>
-
-    <div class="article__content">
-
-      <h2 class="article__title">
-        <a href="/posts/kubernetes/operator/">Kubernetes Operator: A Beginner-Friendly Guide</a>
-      </h2>
-
-      <p class="article__excerpt">A Kubernetes Operator is an advanced controller that automates the management of complex applications. Instead of relying on humans to perform tasks such as deployment...</p>
-
-    </div>
-  </div>
+  </section>
 </div>
-          
-            <div class="article col col-4 col-d-6 col-t-12">
-  <div class="article__inner">
 
-    <div class="article__head">
-        <time class="article__date" datetime="2025-08-25T18:00:00&#43;08:00">25 Aug 2025</time>
 
+
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
         
-    
-        
-        <a class="article__image" href="/posts/tags/tags-example2/">
-          <img class="lazy" data-src="https://via.placeholder.com/1200x800" alt="tag kubernetes">
-        </a>
-        
-    </div>
-
-    <div class="article__content">
-
-      <h2 class="article__title">
-        <a href="/posts/tags/tags-example2/">tag kubernetes</a>
-      </h2>
-
-      <p class="article__excerpt">tag kubernetes example</p>
-
-    </div>
-  </div>
+<div class="show-comments">
+  <button class="button disqus-button" id="show-comments-button" onclick="disqus();return false;">Show Comments</button>
 </div>
-          
-          </div>
-        </div>
-      </div>
-    </div>
 
-  </div>
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="row">
-        <div class="col col-12">
-          <div class="tag__info">
-            <div class="tag__info-box">
-              <div class="tag__counter">
-                <span>1</span>
-                <small>Post</small>
-              </div>
-              <h2 class="tag__name" id="algorithm">algorithm</h2>
-            </div>
-            <a class="top__link" href="#top">Return to top</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col col-12">
-          <div class="row">
-          
-            <div class="article col col-4 col-d-6 col-t-12">
-  <div class="article__inner">
-
-    <div class="article__head">
-        <time class="article__date" datetime="2025-08-25T18:00:00&#43;08:00">25 Aug 2025</time>
-
-        
-    
-        
-        <a class="article__image" href="/posts/tags/tags-example3/">
-          <img class="lazy" data-src="https://via.placeholder.com/1200x800" alt="tag algorithm">
-        </a>
-        
-    </div>
-
-    <div class="article__content">
-
-      <h2 class="article__title">
-        <a href="/posts/tags/tags-example3/">tag algorithm</a>
-      </h2>
-
-      <p class="article__excerpt">tag algorithm example</p>
-
-    </div>
-  </div>
+<div id="disqus_thread" class="post__comments">
+  <div id="disqus_empty"></div>
 </div>
-          
-          </div>
-        </div>
+
+<script>
+  var disqus_loaded = false;
+  var disqus_shortname = 'bailiyingqi';
+  var disqus_container = document.getElementById("disqus_thread");
+  function disqus() {
+    if (!disqus_loaded) {
+      disqus_loaded = true;
+      var e = document.createElement("script");
+      e.type = "text/javascript";
+      e.async = true;
+      e.src = "//" + disqus_shortname + ".disqus.com/embed.js";
+      (document.getElementsByTagName("head")[0] ||
+        document.getElementsByTagName("body")[0])
+        .appendChild(e);
+      
+      document.getElementById("show-comments-button").style.display = "none";
+      
+      disqus_container.classList.add("is-open");
+    }
+  }
+</script>
+
+<noscript>Please enable JavaScript to view the
+  <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+
       </div>
     </div>
-
   </div>
-  
-  <div class="tags__inner">
 
-    <div class="container">
-      <div class="row">
-        <div class="col col-12">
-          <div class="tag__info">
-            <div class="tag__info-box">
-              <div class="tag__counter">
-                <span>1</span>
-                <small>Post</small>
-              </div>
-              <h2 class="tag__name" id="english">english</h2>
-            </div>
-            <a class="top__link" href="#top">Return to top</a>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="container">
-      <div class="row">
-        <div class="col col-12">
-          <div class="row">
-          
-            <div class="article col col-4 col-d-6 col-t-12">
-  <div class="article__inner">
 
-    <div class="article__head">
-        <time class="article__date" datetime="2025-08-25T18:00:00&#43;08:00">25 Aug 2025</time>
-
-        
-    
-        
-        <a class="article__image" href="/posts/tags/tags-example4/">
-          <img class="lazy" data-src="https://via.placeholder.com/1200x800" alt="tag English">
-        </a>
-        
-    </div>
-
-    <div class="article__content">
-
-      <h2 class="article__title">
-        <a href="/posts/tags/tags-example4/">tag English</a>
-      </h2>
-
-      <p class="article__excerpt">tag English example</p>
-
-    </div>
-  </div>
-</div>
-          
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="row">
-        <div class="col col-12">
-          <div class="tag__info">
-            <div class="tag__info-box">
-              <div class="tag__counter">
-                <span>1</span>
-                <small>Post</small>
-              </div>
-              <h2 class="tag__name" id="interview">interview</h2>
-            </div>
-            <a class="top__link" href="#top">Return to top</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col col-12">
-          <div class="row">
-          
-            <div class="article col col-4 col-d-6 col-t-12">
-  <div class="article__inner">
-
-    <div class="article__head">
-        <time class="article__date" datetime="2025-08-25T18:00:00&#43;08:00">25 Aug 2025</time>
-
-        
-    
-        
-        <a class="article__image" href="/posts/tags/tags-example5/">
-          <img class="lazy" data-src="https://via.placeholder.com/1200x800" alt="tag interview">
-        </a>
-        
-    </div>
-
-    <div class="article__content">
-
-      <h2 class="article__title">
-        <a href="/posts/tags/tags-example5/">tag interview</a>
-      </h2>
-
-      <p class="article__excerpt">tag interview example</p>
-
-    </div>
-  </div>
-</div>
-          
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-  
-  <div class="tags__inner">
-
-    <div class="container">
-      <div class="row">
-        <div class="col col-12">
-          <div class="tag__info">
-            <div class="tag__info-box">
-              <div class="tag__counter">
-                <span>1</span>
-                <small>Post</small>
-              </div>
-              <h2 class="tag__name" id="vue">vue</h2>
-            </div>
-            <a class="top__link" href="#top">Return to top</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col col-12">
-          <div class="row">
-          
-            <div class="article col col-4 col-d-6 col-t-12">
-  <div class="article__inner">
-
-    <div class="article__head">
-        <time class="article__date" datetime="2025-08-25T18:00:00&#43;08:00">25 Aug 2025</time>
-
-        
-    
-        
-        <a class="article__image" href="/posts/tags/tags-example1/">
-          <img class="lazy" data-src="https://via.placeholder.com/1200x800" alt="tag vue">
-        </a>
-        
-    </div>
-
-    <div class="article__content">
-
-      <h2 class="article__title">
-        <a href="/posts/tags/tags-example1/">tag vue</a>
-      </h2>
-
-      <p class="article__excerpt">tag vue example</p>
-
-    </div>
-  </div>
-</div>
-          
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-  
-
-</section>
 
 
   </main>

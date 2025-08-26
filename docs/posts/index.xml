@@ -6,8 +6,15 @@
     <description>Recent content in Posts on bailiyingqi</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 26 Aug 2025 01:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 26 Aug 2025 02:00:00 +0800</lastBuildDate>
     <atom:link href="https://zhangsiming-bailiyingqi.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building a Simple Layered API in Go (Gin &#43; GORM)</title>
+      <link>https://zhangsiming-bailiyingqi.github.io/posts/go/layered-api/</link>
+      <pubDate>Tue, 26 Aug 2025 02:00:00 +0800</pubDate>
+      <guid>https://zhangsiming-bailiyingqi.github.io/posts/go/layered-api/</guid>
+      <description>&lt;p&gt;This guide demonstrates how to build a simple REST API in Go using a &lt;strong&gt;layered architecture&lt;/strong&gt; consisting of &lt;strong&gt;Model&lt;/strong&gt;, &lt;strong&gt;Service&lt;/strong&gt;, &lt;strong&gt;Handler&lt;/strong&gt;, and &lt;strong&gt;Router&lt;/strong&gt; layers. We’ll walk through an example: fetching news details by ID.&lt;/p&gt;&#xA;&lt;p&gt;By following this structure, your application becomes easier to &lt;strong&gt;maintain, extend, and test&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;architecture-overview&#34;&gt;Architecture Overview&lt;/h2&gt;&#xA;&lt;p&gt;A typical request flows through the system like this:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://zhangsiming-bailiyingqi.github.io/images/layered-api-structure.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Explanation:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;The &lt;strong&gt;client&lt;/strong&gt; sends an HTTP request.&lt;/li&gt;&#xA;&lt;li&gt;The &lt;strong&gt;Router&lt;/strong&gt; (Gin) matches the request to a handler function.&lt;/li&gt;&#xA;&lt;li&gt;The &lt;strong&gt;Handler&lt;/strong&gt; validates input and calls the Service layer.&lt;/li&gt;&#xA;&lt;li&gt;The &lt;strong&gt;Service&lt;/strong&gt; executes business logic and fetches data from the Model.&lt;/li&gt;&#xA;&lt;li&gt;The &lt;strong&gt;Model&lt;/strong&gt; interacts with the database (via GORM).&lt;/li&gt;&#xA;&lt;li&gt;Results are propagated back through the layers, and a JSON response is returned.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;model-layer-database-models&#34;&gt;Model Layer (Database Models)&lt;/h2&gt;&#xA;&lt;p&gt;The &lt;strong&gt;Model layer&lt;/strong&gt; defines the schema and interacts with the database.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Kubernetes Operator: A Beginner-Friendly Guide</title>
       <link>https://zhangsiming-bailiyingqi.github.io/posts/kubernetes/operator/</link>
