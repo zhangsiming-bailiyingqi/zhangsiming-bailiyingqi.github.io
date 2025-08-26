@@ -6,8 +6,15 @@
     <description>Recent content in Posts on bailiyingqi</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 26 Aug 2025 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 26 Aug 2025 01:00:00 +0800</lastBuildDate>
     <atom:link href="https://zhangsiming-bailiyingqi.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kubernetes Operator: A Beginner-Friendly Guide</title>
+      <link>https://zhangsiming-bailiyingqi.github.io/posts/kubernetes/operator/</link>
+      <pubDate>Tue, 26 Aug 2025 01:00:00 +0800</pubDate>
+      <guid>https://zhangsiming-bailiyingqi.github.io/posts/kubernetes/operator/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;A &lt;strong&gt;Kubernetes Operator&lt;/strong&gt; is an advanced controller that automates the management of complex applications. Instead of relying on humans to perform tasks such as deployment, scaling, and backup, an Operator encodes operational knowledge directly into Kubernetes.&lt;/p&gt;&#xA;&lt;p&gt;This guide provides a step-by-step walkthrough for building a simple &lt;strong&gt;MySQL Operator&lt;/strong&gt; with &lt;a href=&#34;https://github.com/kubernetes-sigs/kubebuilder&#34;&gt;Kubebuilder&lt;/a&gt;. It is written for beginners and includes full code samples and explanations.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-operators&#34;&gt;Why Operators?&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Automation&lt;/strong&gt;: Routine tasks (create, scale, backup) are automated.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Consistency&lt;/strong&gt;: Applications always converge to the desired state.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Declarative management&lt;/strong&gt;: Users describe intent in a Custom Resource (CR), and the Operator ensures the system matches.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;core-concepts&#34;&gt;Core Concepts&lt;/h2&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://zhangsiming-bailiyingqi.github.io/images/operator-operator.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Understanding Closures in Go</title>
       <link>https://zhangsiming-bailiyingqi.github.io/posts/go/go-closures/</link>

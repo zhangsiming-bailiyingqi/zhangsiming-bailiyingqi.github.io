@@ -1,43 +1,27 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
-  <title> | bailiyingqi</title>
-  <meta name="description" content="">
+  <title>Kubernetes operator a beginner friendly guide | bailiyingqi</title>
+  <meta name="description" content="A Kubernetes Operator is an advanced controller that automates the management of complex applications. Instead of relying on humans to perform tasks such as deployment...">
 
   
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content=" | bailiyingqi">
-  <meta name="twitter:description" content="Understanding Closures in Go
-Closures are a fundamental concept in many programming languages, including Go and Python. This article provides a clear explanation of what closures are, how they work in Go, and some common pitfalls developers should be aware of.
-What Is a Closure?
-A closure is a function bundled together with its surrounding environment. It consists of two elements:
-
-Function – the inner function returned by an outer function. This can be a named function, an anonymous function, or a lambda expression.
-Environment – the variables captured from the outer scope that remain accessible even after the outer function has returned.
-
-In practice, closures allow functions to retain access to variables that were in scope when the function was defined—even if those variables are no longer available in the current call stack.">
-  <meta name="twitter:image" content="http://localhost:1313/">
+  <meta name="twitter:title" content="Kubernetes Operator: A Beginner-Friendly Guide | bailiyingqi">
+  <meta name="twitter:description" content="A Kubernetes Operator is an advanced controller that automates the management of complex applications. Instead of relying on humans to perform tasks such as deployment...">
+  <meta name="twitter:image" content="https://zhangsiming-bailiyingqi.github.io/images/operator.jpg">
 
   
-  <meta property="og:title" content=" | bailiyingqi">
-  <meta property="og:description" content="Understanding Closures in Go
-Closures are a fundamental concept in many programming languages, including Go and Python. This article provides a clear explanation of what closures are, how they work in Go, and some common pitfalls developers should be aware of.
-What Is a Closure?
-A closure is a function bundled together with its surrounding environment. It consists of two elements:
-
-Function – the inner function returned by an outer function. This can be a named function, an anonymous function, or a lambda expression.
-Environment – the variables captured from the outer scope that remain accessible even after the outer function has returned.
-
-In practice, closures allow functions to retain access to variables that were in scope when the function was defined—even if those variables are no longer available in the current call stack.">
-  <meta property="og:image" content="http://localhost:1313/">
+  <meta property="og:title" content="Kubernetes Operator: A Beginner-Friendly Guide | bailiyingqi">
+  <meta property="og:description" content="A Kubernetes Operator is an advanced controller that automates the management of complex applications. Instead of relying on humans to perform tasks such as deployment...">
+  <meta property="og:image" content="https://zhangsiming-bailiyingqi.github.io/images/operator.jpg">
 
   
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -78,7 +62,7 @@ In practice, closures allow functions to retain access to variables that were in
       <div class="header__inner col col-12">
 
         <div class="logo">
-          <a class="logo__link" href="http://localhost:1313/">
+          <a class="logo__link" href="https://zhangsiming-bailiyingqi.github.io/">
             
               bailiyingqi
             
@@ -151,21 +135,49 @@ In practice, closures allow functions to retain access to variables that were in
   <main class="content" aria-label="Content">
     
 
-<div class="page-head">
+
+
+<div class="post-head">
   <div class="container">
     <div class="row">
 
       
 
       
+      <div class="col col-6 col-d-12">
+        <div class="post-image">
+          <img class="lazy" data-src="https://zhangsiming-bailiyingqi.github.io/images/operator.jpg" alt="Kubernetes Operator: A Beginner-Friendly Guide">
+        </div>
+      </div>
+      
 
       
 
-      <div class="col col-12">
-        <div class="page__info">
-          <h1 class="page__title"></h1>
+      <div class="col col-6 col-d-12">
+        <div class="post__info ">
+
+          <div class="post__tags">
+            
+              <a href="https://zhangsiming-bailiyingqi.github.io/tags/kubernetes/" class="post__tag">Kubernetes</a>
+            
+          </div>
+
+          <h1 class="post__title">Kubernetes Operator: A Beginner-Friendly Guide</h1>
+
+          <div class="post__meta">
+            <a href="/about/" class="post__author-image">
+              <img class="lazy" data-src="/images/author.jpg" alt="Bailiyingqi">
+            </a>
+
+            <div class="post__meta-bottom">
+              <a class="post__author" href="/about/">Bailiyingqi</a>
+              <time class="post__date" datetime=" 2025-08-26T01:00:00&#43;08:00">26 Aug 2025</time>
+            </div>
+          </div>
+
         </div>
       </div>
+
     </div>
   </div>
 </div>
@@ -173,205 +185,439 @@ In practice, closures allow functions to retain access to variables that were in
 
 <div class="container animate">
 
-  <article class="page">
-    <div class="page__content">
-      <h1 id="understanding-closures-in-go">Understanding Closures in Go</h1>
-<p>Closures are a fundamental concept in many programming languages, including Go and Python. This article provides a clear explanation of what closures are, how they work in Go, and some common pitfalls developers should be aware of.</p>
-<h2 id="what-is-a-closure">What Is a Closure?</h2>
-<p>A closure is a function bundled together with its surrounding environment. It consists of two elements:</p>
-<ol>
-<li><strong>Function</strong> – the inner function returned by an outer function. This can be a named function, an anonymous function, or a lambda expression.</li>
-<li><strong>Environment</strong> – the variables captured from the outer scope that remain accessible even after the outer function has returned.</li>
-</ol>
-<p>In practice, closures allow functions to retain access to variables that were in scope when the function was defined—even if those variables are no longer available in the current call stack.</p>
-<blockquote>
-<p>[!TIP]
-Yes — in Go, <strong>captured variables can &ldquo;escape&rdquo; from the stack to the heap</strong> so that their lifetime extends beyond the function call that originally created them.</p></blockquote>
-<h2 id="basic-example-in-go">Basic Example in Go</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">outer</span><span class="p">()</span> <span class="kd">func</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">x</span> <span class="o">:=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kd">func</span><span class="p">(</span><span class="nx">v</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">y</span> <span class="o">:=</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">v</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">y</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">a</span> <span class="o">:=</span> <span class="nf">outer</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">a</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">a</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p><strong>Output:</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1
-</span></span><span class="line"><span class="cl">2
-</span></span><span class="line"><span class="cl">1
-</span></span><span class="line"><span class="cl">3
-</span></span></code></pre></div><p>Here, <code>a</code> is a closure. The inner function <code>func(v int)</code> is bound to the environment where <code>x</code> was defined. Even though <code>outer</code> has returned, the closure retains access to <code>x</code>.</p>
-<h2 id="anonymous-functions-as-closures">Anonymous Functions as Closures</h2>
-<p>Anonymous functions in Go frequently form closures, capturing variables from the surrounding scope:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">x</span> <span class="o">:=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">a</span> <span class="o">:=</span> <span class="kd">func</span><span class="p">(</span><span class="nx">v</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">y</span> <span class="o">:=</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">v</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">y</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">a</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">a</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p><strong>Output:</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1
-</span></span><span class="line"><span class="cl">3
-</span></span><span class="line"><span class="cl">1
-</span></span><span class="line"><span class="cl">4
-</span></span></code></pre></div><p>Here, the anonymous function captures <code>x</code>, so each call computes based on the preserved environment.</p>
-<p>Closures also appear in <code>defer</code> statements:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">y</span> <span class="o">:=</span> <span class="mi">2</span>
-</span></span><span class="line"><span class="cl">    <span class="k">defer</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">y</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}()</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p><strong>Output:</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">2
-</span></span></code></pre></div><p>The deferred anonymous function closes over <code>y</code>, printing its value when the function returns.</p>
-<h2 id="modifying-the-closure-environment">Modifying the Closure Environment</h2>
-<p>Since closures capture variables by reference, they can <strong>mutate captured state</strong>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">makeAvg</span><span class="p">()</span> <span class="kd">func</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">count</span><span class="p">,</span> <span class="nx">total</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kd">func</span><span class="p">(</span><span class="nx">v</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">count</span><span class="o">++</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">total</span> <span class="o">+=</span> <span class="nx">v</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">float32</span><span class="p">(</span><span class="nx">total</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float32</span><span class="p">(</span><span class="nx">count</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">avg</span> <span class="o">:=</span> <span class="nf">makeAvg</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">avg</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">avg</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">avg</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p><strong>Output:</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1
-</span></span><span class="line"><span class="cl">1.5
-</span></span><span class="line"><span class="cl">2
-</span></span></code></pre></div><p>The closure maintains and updates <code>count</code> and <code>total</code> across calls.</p>
-<h2 id="external-modification-of-closure-state">External Modification of Closure State</h2>
-<p>Closures can also capture <strong>pointers</strong> to variables, allowing modifications from outside:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">foo1</span><span class="p">(</span><span class="nx">x</span> <span class="o">*</span><span class="kt">int</span><span class="p">)</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="o">*</span><span class="nx">x</span><span class="o">++</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="o">*</span><span class="nx">x</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">foo2</span><span class="p">(</span><span class="nx">x</span> <span class="kt">int</span><span class="p">)</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">x</span><span class="o">++</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">x</span> <span class="o">:=</span> <span class="mi">133</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">f1</span> <span class="o">:=</span> <span class="nf">foo1</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">x</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">f2</span> <span class="o">:=</span> <span class="nf">foo2</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nf">f1</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">f1</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">f2</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">f2</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><ul>
-<li><code>foo1</code> captures a pointer to <code>x</code>. Changes are reflected globally.</li>
-<li><code>foo2</code> captures a copy. Changes remain local to the closure.</li>
-</ul>
-<h2 id="delayed-binding-pitfall">Delayed Binding Pitfall</h2>
-<p>One common issue in Go is that closures capture variables, not their values. In loops, this often leads to unexpected results:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">handlers</span> <span class="p">[]</span><span class="kd">func</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">handlers</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">handlers</span><span class="p">,</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="p">})</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">h</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">handlers</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nf">h</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p><strong>Output:</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">10
-</span></span><span class="line"><span class="cl">10
-</span></span><span class="line"><span class="cl">10
-</span></span><span class="line"><span class="cl">...
-</span></span></code></pre></div><p>All closures print <code>10</code> because they reference the same <code>i</code>.</p>
-<p><strong>Fix: Copy the variable inside the loop:</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">a</span> <span class="o">:=</span> <span class="nx">i</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">handlers</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">handlers</span><span class="p">,</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">})</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p><strong>Correct Output:</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">0
-</span></span><span class="line"><span class="cl">1
-</span></span><span class="line"><span class="cl">2
-</span></span><span class="line"><span class="cl">...
-</span></span><span class="line"><span class="cl">9
-</span></span></code></pre></div><h2 id="closures-in-concurrency">Closures in Concurrency</h2>
-<p>Anonymous functions within goroutines can exhibit similar pitfalls:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">val</span> <span class="o">:=</span> <span class="k">range</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}()</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>This often prints repeated values, since the closure captures the loop variable.</p>
-<p><strong>Solution: Pass the variable as a parameter:</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">val</span> <span class="o">:=</span> <span class="k">range</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">go</span> <span class="kd">func</span><span class="p">(</span><span class="nx">v</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}(</span><span class="nx">val</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="summary">Summary</h2>
+  
+  <article class="post amimate">
+
+    <div class="post__content">
+      <h2 id="introduction">Introduction</h2>
+<p>A <strong>Kubernetes Operator</strong> is an advanced controller that automates the management of complex applications. Instead of relying on humans to perform tasks such as deployment, scaling, and backup, an Operator encodes operational knowledge directly into Kubernetes.</p>
+<p>This guide provides a step-by-step walkthrough for building a simple <strong>MySQL Operator</strong> with <a href="https://github.com/kubernetes-sigs/kubebuilder">Kubebuilder</a>. It is written for beginners and includes full code samples and explanations.</p>
+<h2 id="why-operators">Why Operators?</h2>
 <ul>
-<li>A <strong>closure</strong> is a function plus the environment it captures.</li>
-<li>Go closures capture variables by reference, not by value.</li>
-<li>They can mutate their environment, or even be affected by external changes (via pointers).</li>
-<li>Be cautious of <strong>delayed binding</strong> in loops and goroutines.</li>
-<li>Correct usage of closures makes Go code more expressive, but misuse can cause subtle bugs.</li>
+<li><strong>Automation</strong>: Routine tasks (create, scale, backup) are automated.</li>
+<li><strong>Consistency</strong>: Applications always converge to the desired state.</li>
+<li><strong>Declarative management</strong>: Users describe intent in a Custom Resource (CR), and the Operator ensures the system matches.</li>
 </ul>
-<p>👉 By understanding how closures work in Go, you can avoid common mistakes, especially in loops, deferred calls, and goroutines.</p>
+<h2 id="core-concepts">Core Concepts</h2>
+<p><img src="/images/operator-operator.png" alt=""></p>
+<h3 id="31-custom-resource-cr-and-custom-resource-definition-crd">3.1 Custom Resource (CR) and Custom Resource Definition (CRD)</h3>
+<ul>
+<li><strong>CRD</strong>: Extends the Kubernetes API by defining a new resource type (e.g., <code>MySQL</code>).</li>
+<li><strong>CR</strong>: An instance of the CRD that represents desired state (e.g., a MySQL instance with 2 replicas).</li>
+</ul>
+<h3 id="32-controller">3.2 Controller</h3>
+<p>A controller runs a <strong>reconciliation loop</strong>:</p>
+<ol>
+<li>Watch for resource events (create, update, delete).</li>
+<li>Compare actual state (<code>status</code>) with desired state (<code>spec</code>).</li>
+<li>Take action (create/update/delete resources).</li>
+<li>Repeat indefinitely.</li>
+</ol>
+<h3 id="33-informer">3.3 Informer</h3>
+<p>An informer efficiently listens to resource changes:</p>
+<ul>
+<li><strong>List</strong>: Get current state and cache it.</li>
+<li><strong>Watch</strong>: Subscribe to updates.</li>
+<li><strong>Cache</strong>: Avoids constant API calls.</li>
+<li><strong>Notify</strong>: Sends events to controllers.</li>
+</ul>
+<h3 id="34-rbac">3.4 RBAC</h3>
+<p>Operators need <strong>permissions</strong> to create and manage resources. RBAC ensures only the required actions are allowed. We will define <code>ClusterRole</code> and <code>ClusterRoleBinding</code> for our Operator.</p>
+<h2 id="setting-up-kubebuilder">Setting Up Kubebuilder</h2>
+<p>Install Kubebuilder:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget -c https://github.com/kubernetes-sigs/kubebuilder/releases/download/v4.2.0/kubebuilder_darwin_amd64
+</span></span><span class="line"><span class="cl">mv kubebuilder_darwin_amd64 /usr/local/bin/kubebuilder
+</span></span><span class="line"><span class="cl">chmod +x /usr/local/bin/kubebuilder
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">kubebuilder version
+</span></span></code></pre></div><p>Example output:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Version: main.version{KubeBuilderVersion:&#34;4.2.0&#34;, KubernetesVendor:&#34;1.31.0&#34;, ...}
+</span></span></code></pre></div><h2 id="project-initialization">Project Initialization</h2>
+<p>Create a new Operator project:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubebuilder init --domain siming.com --repo github.com/ZhangSiming-blyq/mysql-operator
+</span></span></code></pre></div><p>Then create a custom API for MySQL:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubebuilder create api --group apps --version v1 --kind MySQL --resource --controller
+</span></span></code></pre></div><p>This generates:</p>
+<ul>
+<li><code>api/v1/mysql_types.go</code> — CRD schema</li>
+<li><code>controllers/mysql_controller.go</code> — Controller skeleton</li>
+</ul>
+<h2 id="defining-the-mysql-crd">Defining the MySQL CRD</h2>
+<p>File: <strong>api/v1/mysql_types.go</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">v1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">metav1</span> <span class="s">&#34;k8s.io/apimachinery/pkg/apis/meta/v1&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// MySQLSpec defines desired state</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">MySQLSpec</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Username</span>       <span class="kt">string</span> <span class="s">`json:&#34;username&#34;`</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Password</span>       <span class="kt">string</span> <span class="s">`json:&#34;password&#34;`</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Database</span>       <span class="kt">string</span> <span class="s">`json:&#34;database&#34;`</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Size</span>           <span class="kt">int32</span>  <span class="s">`json:&#34;size&#34;`</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">BackupSchedule</span> <span class="kt">string</span> <span class="s">`json:&#34;backupSchedule&#34;`</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">BackupPath</span>     <span class="kt">string</span> <span class="s">`json:&#34;backupPath&#34;`</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// MySQLStatus defines observed state</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">MySQLStatus</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">ReadyReplicas</span>  <span class="kt">int32</span>           <span class="s">`json:&#34;readyReplicas&#34;`</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">LastBackupTime</span> <span class="o">*</span><span class="nx">metav1</span><span class="p">.</span><span class="nx">Time</span>    <span class="s">`json:&#34;lastBackupTime,omitempty&#34;`</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Conditions</span>     <span class="p">[]</span><span class="nx">metav1</span><span class="p">.</span><span class="nx">Condition</span> <span class="s">`json:&#34;conditions,omitempty&#34;`</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// +kubebuilder:object:root=true</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// +kubebuilder:subresource:status</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">MySQL</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">metav1</span><span class="p">.</span><span class="nx">TypeMeta</span>   <span class="s">`json:&#34;,inline&#34;`</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">metav1</span><span class="p">.</span><span class="nx">ObjectMeta</span> <span class="s">`json:&#34;metadata,omitempty&#34;`</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Spec</span>   <span class="nx">MySQLSpec</span>   <span class="s">`json:&#34;spec,omitempty&#34;`</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Status</span> <span class="nx">MySQLStatus</span> <span class="s">`json:&#34;status,omitempty&#34;`</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// +kubebuilder:object:root=true</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">MySQLList</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">metav1</span><span class="p">.</span><span class="nx">TypeMeta</span> <span class="s">`json:&#34;,inline&#34;`</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">metav1</span><span class="p">.</span><span class="nx">ListMeta</span> <span class="s">`json:&#34;metadata,omitempty&#34;`</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Items</span>           <span class="p">[]</span><span class="nx">MySQL</span> <span class="s">`json:&#34;items&#34;`</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">SchemeBuilder</span><span class="p">.</span><span class="nf">Register</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">MySQL</span><span class="p">{},</span> <span class="o">&amp;</span><span class="nx">MySQLList</span><span class="p">{})</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>Explanation:</strong></p>
+<ul>
+<li><code>Spec</code>: Desired configuration (username, replicas, backup settings).</li>
+<li><code>Status</code>: Current observed state (ready replicas, last backup time).</li>
+<li>Kubebuilder annotations (<code>+kubebuilder:subresource:status</code>) tell Kubernetes to create a subresource for status updates.</li>
+</ul>
+<p>Generate supporting code:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">make generate
+</span></span><span class="line"><span class="cl">make manifests
+</span></span></code></pre></div><h2 id="writing-the-controller">Writing the Controller</h2>
+<p>File: <strong>controllers/mysql_controller.go</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">controller</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="s">&#34;context&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">appsv1</span> <span class="s">&#34;k8s.io/api/apps/v1&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">corev1</span> <span class="s">&#34;k8s.io/api/core/v1&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="s">&#34;k8s.io/apimachinery/pkg/api/errors&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">metav1</span> <span class="s">&#34;k8s.io/apimachinery/pkg/apis/meta/v1&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="s">&#34;k8s.io/apimachinery/pkg/runtime&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="s">&#34;k8s.io/apimachinery/pkg/types&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">ctrl</span> <span class="s">&#34;sigs.k8s.io/controller-runtime&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="s">&#34;sigs.k8s.io/controller-runtime/pkg/client&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="s">&#34;sigs.k8s.io/controller-runtime/pkg/log&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nx">appsv1alpha1</span> <span class="s">&#34;github.com/ZhangSIming-blyq/mysql-operator/api/v1&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// MySQLReconciler reconciles a MySQL object</span>
+</span></span><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">MySQLReconciler</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">client</span><span class="p">.</span><span class="nx">Client</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Scheme</span> <span class="o">*</span><span class="nx">runtime</span><span class="p">.</span><span class="nx">Scheme</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">r</span> <span class="o">*</span><span class="nx">MySQLReconciler</span><span class="p">)</span> <span class="nf">Reconcile</span><span class="p">(</span><span class="nx">ctx</span> <span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">,</span> <span class="nx">req</span> <span class="nx">ctrl</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">(</span><span class="nx">ctrl</span><span class="p">.</span><span class="nx">Result</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">log</span> <span class="o">:=</span> <span class="nx">log</span><span class="p">.</span><span class="nf">FromContext</span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 1. Fetch MySQL CR</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">var</span> <span class="nx">mysql</span> <span class="nx">appsv1alpha1</span><span class="p">.</span><span class="nx">MySQL</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">r</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">req</span><span class="p">.</span><span class="nx">NamespacedName</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">mysql</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">IsNotFound</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="nx">log</span><span class="p">.</span><span class="nf">Info</span><span class="p">(</span><span class="s">&#34;MySQL resource not found. Ignoring.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">return</span> <span class="nx">ctrl</span><span class="p">.</span><span class="nx">Result</span><span class="p">{},</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="nx">ctrl</span><span class="p">.</span><span class="nx">Result</span><span class="p">{},</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 2. Ensure Secret exists</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">var</span> <span class="nx">secret</span> <span class="nx">corev1</span><span class="p">.</span><span class="nx">Secret</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">secretName</span> <span class="o">:=</span> <span class="nx">mysql</span><span class="p">.</span><span class="nx">Name</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">err</span> <span class="o">:=</span> <span class="nx">r</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">types</span><span class="p">.</span><span class="nx">NamespacedName</span><span class="p">{</span><span class="nx">Name</span><span class="p">:</span> <span class="nx">secretName</span><span class="p">,</span> <span class="nx">Namespace</span><span class="p">:</span> <span class="nx">mysql</span><span class="p">.</span><span class="nx">Namespace</span><span class="p">},</span> <span class="o">&amp;</span><span class="nx">secret</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="o">&amp;&amp;</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">IsNotFound</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">secret</span> <span class="p">=</span> <span class="nx">corev1</span><span class="p">.</span><span class="nx">Secret</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="nx">ObjectMeta</span><span class="p">:</span> <span class="nx">metav1</span><span class="p">.</span><span class="nx">ObjectMeta</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">                                <span class="nx">Name</span><span class="p">:</span>      <span class="nx">secretName</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                <span class="nx">Namespace</span><span class="p">:</span> <span class="nx">mysql</span><span class="p">.</span><span class="nx">Namespace</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">                        <span class="nx">StringData</span><span class="p">:</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">                                <span class="s">&#34;MYSQL_ROOT_PASSWORD&#34;</span><span class="p">:</span> <span class="nx">mysql</span><span class="p">.</span><span class="nx">Spec</span><span class="p">.</span><span class="nx">Password</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                <span class="s">&#34;MYSQL_USER&#34;</span><span class="p">:</span>          <span class="nx">mysql</span><span class="p">.</span><span class="nx">Spec</span><span class="p">.</span><span class="nx">Username</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">r</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">secret</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">return</span> <span class="nx">ctrl</span><span class="p">.</span><span class="nx">Result</span><span class="p">{},</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="nx">ctrl</span><span class="p">.</span><span class="nx">Result</span><span class="p">{</span><span class="nx">Requeue</span><span class="p">:</span> <span class="kc">true</span><span class="p">},</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 3. Ensure Deployment exists</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">var</span> <span class="nx">deployment</span> <span class="nx">appsv1</span><span class="p">.</span><span class="nx">Deployment</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">err</span> <span class="p">=</span> <span class="nx">r</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">types</span><span class="p">.</span><span class="nx">NamespacedName</span><span class="p">{</span><span class="nx">Name</span><span class="p">:</span> <span class="nx">mysql</span><span class="p">.</span><span class="nx">Name</span><span class="p">,</span> <span class="nx">Namespace</span><span class="p">:</span> <span class="nx">mysql</span><span class="p">.</span><span class="nx">Namespace</span><span class="p">},</span> <span class="o">&amp;</span><span class="nx">deployment</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="o">&amp;&amp;</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">IsNotFound</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">dep</span> <span class="o">:=</span> <span class="nx">r</span><span class="p">.</span><span class="nf">mysqlDeployment</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">mysql</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">r</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">dep</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">return</span> <span class="nx">ctrl</span><span class="p">.</span><span class="nx">Result</span><span class="p">{},</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="nx">ctrl</span><span class="p">.</span><span class="nx">Result</span><span class="p">{</span><span class="nx">Requeue</span><span class="p">:</span> <span class="kc">true</span><span class="p">},</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 4. Ensure replica count matches</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">*</span><span class="nx">deployment</span><span class="p">.</span><span class="nx">Spec</span><span class="p">.</span><span class="nx">Replicas</span> <span class="o">!=</span> <span class="nx">mysql</span><span class="p">.</span><span class="nx">Spec</span><span class="p">.</span><span class="nx">Size</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">deployment</span><span class="p">.</span><span class="nx">Spec</span><span class="p">.</span><span class="nx">Replicas</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">mysql</span><span class="p">.</span><span class="nx">Spec</span><span class="p">.</span><span class="nx">Size</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">r</span><span class="p">.</span><span class="nf">Update</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">deployment</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">return</span> <span class="nx">ctrl</span><span class="p">.</span><span class="nx">Result</span><span class="p">{},</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// 5. Update CR status</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">mysql</span><span class="p">.</span><span class="nx">Status</span><span class="p">.</span><span class="nx">ReadyReplicas</span> <span class="p">=</span> <span class="nx">deployment</span><span class="p">.</span><span class="nx">Status</span><span class="p">.</span><span class="nx">ReadyReplicas</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">r</span><span class="p">.</span><span class="nf">Status</span><span class="p">().</span><span class="nf">Update</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">mysql</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="nx">ctrl</span><span class="p">.</span><span class="nx">Result</span><span class="p">{},</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">ctrl</span><span class="p">.</span><span class="nx">Result</span><span class="p">{},</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Helper to build Deployment</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">r</span> <span class="o">*</span><span class="nx">MySQLReconciler</span><span class="p">)</span> <span class="nf">mysqlDeployment</span><span class="p">(</span><span class="nx">mysql</span> <span class="o">*</span><span class="nx">appsv1alpha1</span><span class="p">.</span><span class="nx">MySQL</span><span class="p">)</span> <span class="o">*</span><span class="nx">appsv1</span><span class="p">.</span><span class="nx">Deployment</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">labels</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;app&#34;</span><span class="p">:</span> <span class="s">&#34;mysql&#34;</span><span class="p">,</span> <span class="s">&#34;mysql_cr&#34;</span><span class="p">:</span> <span class="nx">mysql</span><span class="p">.</span><span class="nx">Name</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">replicas</span> <span class="o">:=</span> <span class="nx">mysql</span><span class="p">.</span><span class="nx">Spec</span><span class="p">.</span><span class="nx">Size</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nx">dep</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">appsv1</span><span class="p">.</span><span class="nx">Deployment</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">ObjectMeta</span><span class="p">:</span> <span class="nx">metav1</span><span class="p">.</span><span class="nx">ObjectMeta</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="nx">Name</span><span class="p">:</span>      <span class="nx">mysql</span><span class="p">.</span><span class="nx">Name</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                        <span class="nx">Namespace</span><span class="p">:</span> <span class="nx">mysql</span><span class="p">.</span><span class="nx">Namespace</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="p">},</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">Spec</span><span class="p">:</span> <span class="nx">appsv1</span><span class="p">.</span><span class="nx">DeploymentSpec</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="nx">Replicas</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">replicas</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                        <span class="nx">Selector</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">metav1</span><span class="p">.</span><span class="nx">LabelSelector</span><span class="p">{</span><span class="nx">MatchLabels</span><span class="p">:</span> <span class="nx">labels</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">                        <span class="nx">Template</span><span class="p">:</span> <span class="nx">corev1</span><span class="p">.</span><span class="nx">PodTemplateSpec</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">                                <span class="nx">ObjectMeta</span><span class="p">:</span> <span class="nx">metav1</span><span class="p">.</span><span class="nx">ObjectMeta</span><span class="p">{</span><span class="nx">Labels</span><span class="p">:</span> <span class="nx">labels</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">                                <span class="nx">Spec</span><span class="p">:</span> <span class="nx">corev1</span><span class="p">.</span><span class="nx">PodSpec</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">                                        <span class="nx">Containers</span><span class="p">:</span> <span class="p">[]</span><span class="nx">corev1</span><span class="p">.</span><span class="nx">Container</span><span class="p">{{</span>
+</span></span><span class="line"><span class="cl">                                                <span class="nx">Name</span><span class="p">:</span>  <span class="s">&#34;mysql&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                                <span class="nx">Image</span><span class="p">:</span> <span class="s">&#34;mysql:5.7&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                                <span class="nx">Ports</span><span class="p">:</span> <span class="p">[]</span><span class="nx">corev1</span><span class="p">.</span><span class="nx">ContainerPort</span><span class="p">{{</span><span class="nx">ContainerPort</span><span class="p">:</span> <span class="mi">3306</span><span class="p">,</span> <span class="nx">Name</span><span class="p">:</span> <span class="s">&#34;mysql&#34;</span><span class="p">}},</span>
+</span></span><span class="line"><span class="cl">                                                <span class="nx">Env</span><span class="p">:</span> <span class="p">[]</span><span class="nx">corev1</span><span class="p">.</span><span class="nx">EnvVar</span><span class="p">{{</span>
+</span></span><span class="line"><span class="cl">                                                        <span class="nx">Name</span><span class="p">:</span> <span class="s">&#34;MYSQL_ROOT_PASSWORD&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                                        <span class="nx">ValueFrom</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">corev1</span><span class="p">.</span><span class="nx">EnvVarSource</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">                                                                <span class="nx">SecretKeyRef</span><span class="p">:</span> <span class="o">&amp;</span><span class="nx">corev1</span><span class="p">.</span><span class="nx">SecretKeySelector</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">                                                                        <span class="nx">Key</span><span class="p">:</span> <span class="s">&#34;MYSQL_ROOT_PASSWORD&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                                                        <span class="nx">LocalObjectReference</span><span class="p">:</span> <span class="nx">corev1</span><span class="p">.</span><span class="nx">LocalObjectReference</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">                                                                                <span class="nx">Name</span><span class="p">:</span> <span class="nx">mysql</span><span class="p">.</span><span class="nx">Name</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                                                        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">                                                                <span class="p">},</span>
+</span></span><span class="line"><span class="cl">                                                        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">                                                <span class="p">}},</span>
+</span></span><span class="line"><span class="cl">                                        <span class="p">}},</span>
+</span></span><span class="line"><span class="cl">                                <span class="p">},</span>
+</span></span><span class="line"><span class="cl">                        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">                <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">ctrl</span><span class="p">.</span><span class="nf">SetControllerReference</span><span class="p">(</span><span class="nx">mysql</span><span class="p">,</span> <span class="nx">dep</span><span class="p">,</span> <span class="nx">r</span><span class="p">.</span><span class="nx">Scheme</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">dep</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">r</span> <span class="o">*</span><span class="nx">MySQLReconciler</span><span class="p">)</span> <span class="nf">SetupWithManager</span><span class="p">(</span><span class="nx">mgr</span> <span class="nx">ctrl</span><span class="p">.</span><span class="nx">Manager</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">ctrl</span><span class="p">.</span><span class="nf">NewControllerManagedBy</span><span class="p">(</span><span class="nx">mgr</span><span class="p">).</span>
+</span></span><span class="line"><span class="cl">                <span class="nf">For</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">appsv1alpha1</span><span class="p">.</span><span class="nx">MySQL</span><span class="p">{}).</span>
+</span></span><span class="line"><span class="cl">                <span class="nf">Owns</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">appsv1</span><span class="p">.</span><span class="nx">Deployment</span><span class="p">{}).</span>
+</span></span><span class="line"><span class="cl">                <span class="nf">Complete</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>Explanation:</strong></p>
+<ol>
+<li><strong>Fetch CR</strong> — read the MySQL resource instance.</li>
+<li><strong>Secret management</strong> — ensure credentials are stored.</li>
+<li><strong>Deployment management</strong> — create or update a MySQL Deployment.</li>
+<li><strong>Replica sync</strong> — reconcile desired vs. actual replicas.</li>
+<li><strong>Status update</strong> — write back runtime state to CR status.</li>
+</ol>
+<p>This is the core reconciliation logic.</p>
+<h2 id="deploying-the-operator">Deploying the Operator</h2>
+<h3 id="81-build-and-push-image">8.1 Build and Push Image</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">make docker-build <span class="nv">IMG</span><span class="o">=</span>myregistry/mysql-operator:v1.0.0
+</span></span><span class="line"><span class="cl">make docker-push <span class="nv">IMG</span><span class="o">=</span>myregistry/mysql-operator:v1.0.0
+</span></span></code></pre></div><p>Update image in <code>config/manager/manager.yaml</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">containers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">manager</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">myregistry/mysql-operator:v1.0.0</span><span class="w">
+</span></span></span></code></pre></div><h3 id="82-deploy-crd-rbac-manager">8.2 Deploy CRD, RBAC, Manager</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">make manifests
+</span></span><span class="line"><span class="cl">kubectl apply -f config/crd/bases
+</span></span><span class="line"><span class="cl">kubectl apply -f config/rbac
+</span></span><span class="line"><span class="cl">kubectl apply -f config/manager
+</span></span></code></pre></div><h3 id="83-test-with-a-cr">8.3 Test With a CR</h3>
+<p>File: <strong>config/samples/apps_v1_mysql.yaml</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">apps.siming.com/v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">MySQL</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">mysql-sample</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l">root</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l">password123</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">database</span><span class="p">:</span><span class="w"> </span><span class="l">mydatabase</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">size</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">backupSchedule</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;*/5 * * * *&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">backupPath</span><span class="p">:</span><span class="w"> </span><span class="l">/backups</span><span class="w">
+</span></span></span></code></pre></div><p>Apply:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl apply -f config/samples/apps_v1_mysql.yaml
+</span></span><span class="line"><span class="cl">kubectl get pods
+</span></span></code></pre></div><p>You should see Pods managed by the Operator. Scaling is automatic if you update <code>spec.size</code>.</p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Operators extend Kubernetes with custom APIs.</li>
+<li>Controllers reconcile desired vs. actual state.</li>
+<li>Informers make event handling efficient.</li>
+<li>RBAC ensures secure access.</li>
+<li>Kubebuilder scaffolds everything: project, CRDs, controllers, RBAC.</li>
+</ul>
+<p><strong>Development flow:</strong></p>
+<ol>
+<li><code>kubebuilder init</code> — initialize project.</li>
+<li><code>kubebuilder create api</code> — define CRD and controller.</li>
+<li>Implement <strong>Spec/Status</strong> and <code>Reconcile</code>.</li>
+<li>Run <code>make generate</code> + <code>make manifests</code>.</li>
+<li>Build and deploy image.</li>
+<li>Test with a Custom Resource.</li>
+</ol>
+<p>👉 This rewritten document keeps <strong>all code intact</strong>, adds <strong>step-by-step explanations</strong>, and should allow a beginner to build and test an Operator successfully.</p>
 
     </div>
+
+    <div class="post__share">
+  <ul class="share__list list-reset">
+    <li class="share__item">
+      <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=Kubernetes%20Operator%3a%20A%20Beginner-Friendly%20Guide&url=https%3a%2f%2fzhangsiming-bailiyingqi.github.io%2fposts%2fkubernetes%2foperator%2f" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>
+    </li>
+
+    <li class="share__item">
+      <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fzhangsiming-bailiyingqi.github.io%2fposts%2fkubernetes%2foperator%2f"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>
+    </li>
+
+    <li class="share__item">
+      <a class="share__link share__pinterest"
+        href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fzhangsiming-bailiyingqi.github.io%2fposts%2fkubernetes%2foperator%2f&amp;media=https%3a%2f%2fzhangsiming-bailiyingqi.github.io%2fimages%2foperator.jpg&amp;description=Kubernetes%20Operator%3a%20A%20Beginner-Friendly%20Guide"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on Pinterest" aria-label="Share on Pinterest"><i class="ion ion-logo-pinterest"></i></a>
+    </li>
+
+    <li class="share__item">
+      <a class="share__link share__linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fzhangsiming-bailiyingqi.github.io%2fposts%2fkubernetes%2foperator%2f&title=Kubernetes%20Operator%3a%20A%20Beginner-Friendly%20Guide&summary=A%20Kubernetes%20Operator%20is%20an%20advanced%20controller%20that%20automates%20the%20management%20of%20complex%20applications.%20Instead%20of%20relying%20on%20humans%20to%20perform%20tasks%20such%20as%20deployment...&source=Kubernetes%20Operator%3a%20A%20Beginner-Friendly%20Guide"
+      onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn" rel="nofollow"><i class="ion ion-logo-linkedin"></i></a>
+    </li>
+  </ul>
+</div>
+
   </article>
+  
 
 </div>
+
+
+<div class="container">
+  <section class="related-posts animate">
+    <div class="row">
+      <div class="col col-12">
+        <div class="container__inner">
+          <div class="section__info">
+            <div class="section__head">
+              <h2 class="section__title">You may also like</h2>
+              
+                <a href="https://zhangsiming-bailiyingqi.github.io/tags/kubernetes/" class="section__link related-tag">See all<span> Kubernetes</span></a>
+              
+              </a>
+            </div>
+          </div>
+          <div class="row">
+          
+            <div class="article col col-4 col-d-6 col-t-12">
+  <div class="article__inner">
+
+    <div class="article__head">
+        <time class="article__date" datetime="2025-08-25T18:00:00&#43;08:00">25 Aug 2025</time>
+
+        
+    
+        
+        <a class="article__image" href="/posts/tags/tags-example2/">
+          <img class="lazy" data-src="https://via.placeholder.com/1200x800" alt="tag kubernetes">
+        </a>
+        
+    </div>
+
+    <div class="article__content">
+
+      <h2 class="article__title">
+        <a href="/posts/tags/tags-example2/">tag kubernetes</a>
+      </h2>
+
+      <p class="article__excerpt">tag kubernetes example</p>
+
+    </div>
+  </div>
+</div>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+        
+<div class="show-comments">
+  <button class="button disqus-button" id="show-comments-button" onclick="disqus();return false;">Show Comments</button>
+</div>
+
+<div id="disqus_thread" class="post__comments">
+  <div id="disqus_empty"></div>
+</div>
+
+<script>
+  var disqus_loaded = false;
+  var disqus_shortname = 'bailiyingqi';
+  var disqus_container = document.getElementById("disqus_thread");
+  function disqus() {
+    if (!disqus_loaded) {
+      disqus_loaded = true;
+      var e = document.createElement("script");
+      e.type = "text/javascript";
+      e.async = true;
+      e.src = "//" + disqus_shortname + ".disqus.com/embed.js";
+      (document.getElementsByTagName("head")[0] ||
+        document.getElementsByTagName("body")[0])
+        .appendChild(e);
+      
+      document.getElementById("show-comments-button").style.display = "none";
+      
+      disqus_container.classList.add("is-open");
+    }
+  }
+</script>
+
+<noscript>Please enable JavaScript to view the
+  <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+
+      </div>
+    </div>
+  </div>
+
+
 
 
 
