@@ -2,25 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://zhangsiming-bailiyingqi.github.io/</loc>
+    <lastmod>2025-08-26T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://zhangsiming-bailiyingqi.github.io/tags/golang/</loc>
+    <lastmod>2025-08-26T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://zhangsiming-bailiyingqi.github.io/posts/</loc>
+    <lastmod>2025-08-26T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://zhangsiming-bailiyingqi.github.io/tags/</loc>
+    <lastmod>2025-08-26T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://zhangsiming-bailiyingqi.github.io/posts/go/go-closures/</loc>
+    <lastmod>2025-08-26T00:00:00+08:00</lastmod>
+  </url><url>
     <loc>https://zhangsiming-bailiyingqi.github.io/tags/algorithm/</loc>
     <lastmod>2025-08-25T18:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://zhangsiming-bailiyingqi.github.io/</loc>
-    <lastmod>2025-08-25T18:00:00+08:00</lastmod>
-  </url><url>
     <loc>https://zhangsiming-bailiyingqi.github.io/tags/english/</loc>
-    <lastmod>2025-08-25T18:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://zhangsiming-bailiyingqi.github.io/tags/golang/</loc>
     <lastmod>2025-08-25T18:00:00+08:00</lastmod>
   </url><url>
     <loc>https://zhangsiming-bailiyingqi.github.io/tags/interview/</loc>
     <lastmod>2025-08-25T18:00:00+08:00</lastmod>
   </url><url>
     <loc>https://zhangsiming-bailiyingqi.github.io/tags/kubernetes/</loc>
-    <lastmod>2025-08-25T18:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://zhangsiming-bailiyingqi.github.io/posts/</loc>
     <lastmod>2025-08-25T18:00:00+08:00</lastmod>
   </url><url>
     <loc>https://zhangsiming-bailiyingqi.github.io/posts/tags/tags-example3/</loc>
@@ -39,9 +45,6 @@
     <lastmod>2025-08-25T18:00:00+08:00</lastmod>
   </url><url>
     <loc>https://zhangsiming-bailiyingqi.github.io/posts/tags/tags-example1/</loc>
-    <lastmod>2025-08-25T18:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://zhangsiming-bailiyingqi.github.io/tags/</loc>
     <lastmod>2025-08-25T18:00:00+08:00</lastmod>
   </url><url>
     <loc>https://zhangsiming-bailiyingqi.github.io/tags/vue/</loc>

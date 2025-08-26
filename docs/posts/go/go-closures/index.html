@@ -7,22 +7,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
-  <title>Golang | bailiyingqi</title>
-  <meta name="description" content="">
+  <title>Understanding closures in go | bailiyingqi</title>
+  <meta name="description" content="Closures are a fundamental concept in many programming languages, including Go and Python. This article provides a clear explanation of what closures are...">
 
-  <link rel="alternate" type="application/rss+xml" href="https://zhangsiming-bailiyingqi.github.io/tags/golang/index.xml" title="bailiyingqi">
   
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Golang | bailiyingqi">
-  <meta name="twitter:description" content="A personal tech blog on Go, Kubernetes, Vue, and Linux—documenting my full-stack learning journey.">
-  <meta name="twitter:image" content="https://zhangsiming-bailiyingqi.github.io/">
+  <meta name="twitter:title" content="Understanding Closures in Go | bailiyingqi">
+  <meta name="twitter:description" content="Closures are a fundamental concept in many programming languages, including Go and Python. This article provides a clear explanation of what closures are...">
+  <meta name="twitter:image" content="https://zhangsiming-bailiyingqi.github.io/images/go-closures.jpg">
 
   
-  <meta property="og:title" content="Golang | bailiyingqi">
-  <meta property="og:description" content="A personal tech blog on Go, Kubernetes, Vue, and Linux—documenting my full-stack learning journey.">
-  <meta property="og:image" content="https://zhangsiming-bailiyingqi.github.io/">
+  <meta property="og:title" content="Understanding Closures in Go | bailiyingqi">
+  <meta property="og:description" content="Closures are a fundamental concept in many programming languages, including Go and Python. This article provides a clear explanation of what closures are...">
+  <meta property="og:image" content="https://zhangsiming-bailiyingqi.github.io/images/go-closures.jpg">
 
   
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -136,51 +135,302 @@
   <main class="content" aria-label="Content">
     
 
-<div class="archive">
 
+
+<div class="post-head">
   <div class="container">
     <div class="row">
-      <div class="col col-12">
-        <div class="archive__box">
-          <span class="archive__counter">2 Posts</span>
-          <h1 class="archive__title">Golang</h1>
+
+      
+
+      
+      <div class="col col-6 col-d-12">
+        <div class="post-image">
+          <img class="lazy" data-src="https://zhangsiming-bailiyingqi.github.io/images/go-closures.jpg" alt="Understanding Closures in Go">
         </div>
       </div>
-    </div>
-  </div>
-  
-  <div class="container">
-    <div class="row animate">
-  
       
-        <div class="article col col-4 col-d-6 col-t-12">
-  <div class="article__inner">
 
-    <div class="article__head">
-        <time class="article__date" datetime="2025-08-26T00:00:00&#43;08:00">26 Aug 2025</time>
+      
 
-        
-    
-        
-        <a class="article__image" href="/posts/go/go-closures/">
-          <img class="lazy" data-src="https://zhangsiming-bailiyingqi.github.io/images/go-closures.jpg" alt="Understanding Closures in Go">
-        </a>
-        
-    </div>
+      <div class="col col-6 col-d-12">
+        <div class="post__info ">
 
-    <div class="article__content">
+          <div class="post__tags">
+            
+              <a href="https://zhangsiming-bailiyingqi.github.io/tags/golang/" class="post__tag">Golang</a>
+            
+          </div>
 
-      <h2 class="article__title">
-        <a href="/posts/go/go-closures/">Understanding Closures in Go</a>
-      </h2>
+          <h1 class="post__title">Understanding Closures in Go</h1>
 
-      <p class="article__excerpt">Closures are a fundamental concept in many programming languages, including Go and Python. This article provides a clear explanation of what closures are...</p>
+          <div class="post__meta">
+            <a href="/about/" class="post__author-image">
+              <img class="lazy" data-src="/images/author.jpg" alt="Bailiyingqi">
+            </a>
+
+            <div class="post__meta-bottom">
+              <a class="post__author" href="/about/">Bailiyingqi</a>
+              <time class="post__date" datetime=" 2025-08-26T00:00:00&#43;08:00">26 Aug 2025</time>
+            </div>
+          </div>
+
+        </div>
+      </div>
 
     </div>
   </div>
 </div>
-      
-        <div class="article col col-4 col-d-6 col-t-12">
+
+
+<div class="container animate">
+
+  
+  <article class="post amimate">
+
+    <div class="post__content">
+      <p>Closures are a fundamental concept in many programming languages, including Go and Python. This article provides a clear explanation of what closures are, how they work in Go, and some common pitfalls developers should be aware of.</p>
+<h2 id="what-is-a-closure">What Is a Closure?</h2>
+<p>A closure is a function bundled together with its surrounding environment. It consists of two elements:</p>
+<ol>
+<li><strong>Function</strong> – the inner function returned by an outer function. This can be a named function, an anonymous function, or a lambda expression.</li>
+<li><strong>Environment</strong> – the variables captured from the outer scope that remain accessible even after the outer function has returned.</li>
+</ol>
+<p>In practice, closures allow functions to retain access to variables that were in scope when the function was defined—even if those variables are no longer available in the current call stack.</p>
+<blockquote>
+<p>Yes — in Go, <strong>captured variables can &ldquo;escape&rdquo; from the stack to the heap</strong> so that their lifetime extends beyond the function call that originally created them.</p></blockquote>
+<h2 id="basic-example-in-go">Basic Example in Go</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">outer</span><span class="p">()</span> <span class="kd">func</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">x</span> <span class="o">:=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kd">func</span><span class="p">(</span><span class="nx">v</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">y</span> <span class="o">:=</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">v</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">a</span> <span class="o">:=</span> <span class="nf">outer</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">a</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">a</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>Output:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1
+</span></span><span class="line"><span class="cl">2
+</span></span><span class="line"><span class="cl">1
+</span></span><span class="line"><span class="cl">3
+</span></span></code></pre></div><p>Here, <code>a</code> is a closure. The inner function <code>func(v int)</code> is bound to the environment where <code>x</code> was defined. Even though <code>outer</code> has returned, the closure retains access to <code>x</code>.</p>
+<h2 id="anonymous-functions-as-closures">Anonymous Functions as Closures</h2>
+<p>Anonymous functions in Go frequently form closures, capturing variables from the surrounding scope:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">x</span> <span class="o">:=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">a</span> <span class="o">:=</span> <span class="kd">func</span><span class="p">(</span><span class="nx">v</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">y</span> <span class="o">:=</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">v</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">a</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">a</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>Output:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1
+</span></span><span class="line"><span class="cl">3
+</span></span><span class="line"><span class="cl">1
+</span></span><span class="line"><span class="cl">4
+</span></span></code></pre></div><p>Here, the anonymous function captures <code>x</code>, so each call computes based on the preserved environment.</p>
+<p>Closures also appear in <code>defer</code> statements:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">y</span> <span class="o">:=</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="k">defer</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>Output:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">2
+</span></span></code></pre></div><p>The deferred anonymous function closes over <code>y</code>, printing its value when the function returns.</p>
+<h2 id="modifying-the-closure-environment">Modifying the Closure Environment</h2>
+<p>Since closures capture variables by reference, they can <strong>mutate captured state</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">makeAvg</span><span class="p">()</span> <span class="kd">func</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">count</span><span class="p">,</span> <span class="nx">total</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kd">func</span><span class="p">(</span><span class="nx">v</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">count</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">total</span> <span class="o">+=</span> <span class="nx">v</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">float32</span><span class="p">(</span><span class="nx">total</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float32</span><span class="p">(</span><span class="nx">count</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">avg</span> <span class="o">:=</span> <span class="nf">makeAvg</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">avg</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">avg</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">avg</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>Output:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1
+</span></span><span class="line"><span class="cl">1.5
+</span></span><span class="line"><span class="cl">2
+</span></span></code></pre></div><p>The closure maintains and updates <code>count</code> and <code>total</code> across calls.</p>
+<h2 id="external-modification-of-closure-state">External Modification of Closure State</h2>
+<p>Closures can also capture <strong>pointers</strong> to variables, allowing modifications from outside:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">foo1</span><span class="p">(</span><span class="nx">x</span> <span class="o">*</span><span class="kt">int</span><span class="p">)</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="o">*</span><span class="nx">x</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="o">*</span><span class="nx">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">foo2</span><span class="p">(</span><span class="nx">x</span> <span class="kt">int</span><span class="p">)</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">x</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">x</span> <span class="o">:=</span> <span class="mi">133</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">f1</span> <span class="o">:=</span> <span class="nf">foo1</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">f2</span> <span class="o">:=</span> <span class="nf">foo2</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">f1</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">f1</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">f2</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">f2</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li><code>foo1</code> captures a pointer to <code>x</code>. Changes are reflected globally.</li>
+<li><code>foo2</code> captures a copy. Changes remain local to the closure.</li>
+</ul>
+<h2 id="delayed-binding-pitfall">Delayed Binding Pitfall</h2>
+<p>One common issue in Go is that closures capture variables, not their values. In loops, this often leads to unexpected results:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">handlers</span> <span class="p">[]</span><span class="kd">func</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">handlers</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">handlers</span><span class="p">,</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">h</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">handlers</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">h</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>Output:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">10
+</span></span><span class="line"><span class="cl">10
+</span></span><span class="line"><span class="cl">10
+</span></span><span class="line"><span class="cl">...
+</span></span></code></pre></div><p>All closures print <code>10</code> because they reference the same <code>i</code>.</p>
+<p><strong>Fix: Copy the variable inside the loop:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">a</span> <span class="o">:=</span> <span class="nx">i</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">handlers</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">handlers</span><span class="p">,</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>Correct Output:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">0
+</span></span><span class="line"><span class="cl">1
+</span></span><span class="line"><span class="cl">2
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">9
+</span></span></code></pre></div><h2 id="closures-in-concurrency">Closures in Concurrency</h2>
+<p>Anonymous functions within goroutines can exhibit similar pitfalls:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">val</span> <span class="o">:=</span> <span class="k">range</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>This often prints repeated values, since the closure captures the loop variable.</p>
+<p><strong>Solution: Pass the variable as a parameter:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">val</span> <span class="o">:=</span> <span class="k">range</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">go</span> <span class="kd">func</span><span class="p">(</span><span class="nx">v</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}(</span><span class="nx">val</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="summary">Summary</h2>
+<ul>
+<li>A <strong>closure</strong> is a function plus the environment it captures.</li>
+<li>Go closures capture variables by reference, not by value.</li>
+<li>They can mutate their environment, or even be affected by external changes (via pointers).</li>
+<li>Be cautious of <strong>delayed binding</strong> in loops and goroutines.</li>
+<li>Correct usage of closures makes Go code more expressive, but misuse can cause subtle bugs.</li>
+</ul>
+<p>👉 By understanding how closures work in Go, you can avoid common mistakes, especially in loops, deferred calls, and goroutines.</p>
+
+    </div>
+
+    <div class="post__share">
+  <ul class="share__list list-reset">
+    <li class="share__item">
+      <a class="share__link share__twitter" href="https://twitter.com/intent/tweet?text=Understanding%20Closures%20in%20Go&url=https%3a%2f%2fzhangsiming-bailiyingqi.github.io%2fposts%2fgo%2fgo-closures%2f" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>
+    </li>
+
+    <li class="share__item">
+      <a class="share__link share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fzhangsiming-bailiyingqi.github.io%2fposts%2fgo%2fgo-closures%2f"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>
+    </li>
+
+    <li class="share__item">
+      <a class="share__link share__pinterest"
+        href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fzhangsiming-bailiyingqi.github.io%2fposts%2fgo%2fgo-closures%2f&amp;media=https%3a%2f%2fzhangsiming-bailiyingqi.github.io%2fimages%2fgo-closures.jpg&amp;description=Understanding%20Closures%20in%20Go"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on Pinterest" aria-label="Share on Pinterest"><i class="ion ion-logo-pinterest"></i></a>
+    </li>
+
+    <li class="share__item">
+      <a class="share__link share__linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fzhangsiming-bailiyingqi.github.io%2fposts%2fgo%2fgo-closures%2f&title=Understanding%20Closures%20in%20Go&summary=Closures%20are%20a%20fundamental%20concept%20in%20many%20programming%20languages%2c%20including%20Go%20and%20Python.%20This%20article%20provides%20a%20clear%20explanation%20of%20what%20closures%20are...&source=Understanding%20Closures%20in%20Go"
+      onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn" rel="nofollow"><i class="ion ion-logo-linkedin"></i></a>
+    </li>
+  </ul>
+</div>
+
+  </article>
+  
+
+</div>
+
+
+<div class="container">
+  <section class="related-posts animate">
+    <div class="row">
+      <div class="col col-12">
+        <div class="container__inner">
+          <div class="section__info">
+            <div class="section__head">
+              <h2 class="section__title">You may also like</h2>
+              
+                <a href="https://zhangsiming-bailiyingqi.github.io/tags/golang/" class="section__link related-tag">See all<span> Golang</span></a>
+              
+              </a>
+            </div>
+          </div>
+          <div class="row">
+          
+            <div class="article col col-4 col-d-6 col-t-12">
   <div class="article__inner">
 
     <div class="article__head">
@@ -206,12 +456,60 @@
     </div>
   </div>
 </div>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+        
+<div class="show-comments">
+  <button class="button disqus-button" id="show-comments-button" onclick="disqus();return false;">Show Comments</button>
+</div>
+
+<div id="disqus_thread" class="post__comments">
+  <div id="disqus_empty"></div>
+</div>
+
+<script>
+  var disqus_loaded = false;
+  var disqus_shortname = 'bailiyingqi';
+  var disqus_container = document.getElementById("disqus_thread");
+  function disqus() {
+    if (!disqus_loaded) {
+      disqus_loaded = true;
+      var e = document.createElement("script");
+      e.type = "text/javascript";
+      e.async = true;
+      e.src = "//" + disqus_shortname + ".disqus.com/embed.js";
+      (document.getElementsByTagName("head")[0] ||
+        document.getElementsByTagName("body")[0])
+        .appendChild(e);
       
-  
+      document.getElementById("show-comments-button").style.display = "none";
+      
+      disqus_container.classList.add("is-open");
+    }
+  }
+</script>
+
+<noscript>Please enable JavaScript to view the
+  <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+
+      </div>
     </div>
   </div>
 
-</div>
+
+
 
 
   </main>
