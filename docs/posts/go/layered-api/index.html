@@ -188,12 +188,66 @@
   
   <article class="post amimate">
 
+	<style>
+	 
+	#TableOfContents ul {
+	  list-style: none;     
+	  padding-left: 0;      
+	  margin: 0;
+	}
+	#TableOfContents li {
+	  margin: .4em 0;       
+	  line-height: 1.5;
+	}
+	#TableOfContents ul ul {
+	  margin-left: 1.2em;   
+	  padding-left: .8em;
+	  border-left: 2px solid #eee;  
+	}
+	#TableOfContents ul ul li {
+	  font-size: .95em;     
+	}
+	#TableOfContents ul ul ul li {
+	  font-size: .9em;      
+	  color: #555;          
+	}
+    .page__toc {
+      margin-bottom: 2rem;   
+    }
+    .post__content pre {
+      overflow-x: auto;      
+      white-space: pre;      
+      padding: 1rem;
+      border-radius: 6px;
+      margin: 1.5rem 0;
+    }
+    
+    .post__content code {
+      font-family: Menlo, Monaco, Consolas, monospace;
+      font-size: 0.9em;
+    }
+    
+  	</style>
+		
     <div class="post__content">
+      <div class="page__toc">
+        <h2 class="page__toc__title">Table of Contents</h2>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-architecture-overview">1. Architecture Overview</a></li>
+    <li><a href="#2-model-layer-database-models">2. Model Layer (Database Models)</a></li>
+    <li><a href="#3-service-layer-business-logic">3. Service Layer (Business Logic)</a></li>
+    <li><a href="#4-handler-layer-http-request-handling">4. Handler Layer (HTTP Request Handling)</a></li>
+    <li><a href="#5-router-setup">5. Router Setup</a></li>
+    <li><a href="#6-adding-a-new-api-step-by-step">6. Adding a New API (Step-by-Step)</a></li>
+    <li><a href="#7-summary">7. Summary</a></li>
+  </ul>
+</nav>
+      </div>
       <p>This guide demonstrates how to build a simple REST API in Go using a <strong>layered architecture</strong> consisting of <strong>Model</strong>, <strong>Service</strong>, <strong>Handler</strong>, and <strong>Router</strong> layers. We’ll walk through an example: fetching news details by ID.</p>
 <p>By following this structure, your application becomes easier to <strong>maintain, extend, and test</strong>.</p>
-<h2 id="architecture-overview">Architecture Overview</h2>
+<h2 id="1-architecture-overview">1. Architecture Overview</h2>
 <p>A typical request flows through the system like this:</p>
-<p><img src="/images/layered-api-structure.jpg" alt=""></p>
 <p><strong>Explanation:</strong></p>
 <ol>
 <li>The <strong>client</strong> sends an HTTP request.</li>
@@ -203,7 +257,7 @@
 <li>The <strong>Model</strong> interacts with the database (via GORM).</li>
 <li>Results are propagated back through the layers, and a JSON response is returned.</li>
 </ol>
-<h2 id="model-layer-database-models">Model Layer (Database Models)</h2>
+<h2 id="2-model-layer-database-models">2. Model Layer (Database Models)</h2>
 <p>The <strong>Model layer</strong> defines the schema and interacts with the database.</p>
 <p><strong>File:</strong> <code>model/news.go</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">model</span>
@@ -232,7 +286,7 @@
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">&amp;</span><span class="nx">news</span><span class="p">,</span> <span class="nx">err</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>👉 The <code>News</code> struct defines a table schema, while <code>GetNewsByID</code> performs a simple query using GORM.</p>
-<h2 id="service-layer-business-logic">Service Layer (Business Logic)</h2>
+<h2 id="3-service-layer-business-logic">3. Service Layer (Business Logic)</h2>
 <p>The <strong>Service layer</strong> contains application logic. It hides database operations behind business-friendly methods.</p>
 <p><strong>File:</strong> <code>service/news.go</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">service</span>
@@ -258,7 +312,7 @@
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">s</span><span class="p">.</span><span class="nx">newsModel</span><span class="p">.</span><span class="nf">GetNewsByID</span><span class="p">(</span><span class="nx">newsID</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>👉 <code>NewsService</code> defines the contract. <code>newsService</code> implements it by calling the Model layer.</p>
-<h2 id="handler-layer-http-request-handling">Handler Layer (HTTP Request Handling)</h2>
+<h2 id="4-handler-layer-http-request-handling">4. Handler Layer (HTTP Request Handling)</h2>
 <p>The <strong>Handler layer</strong> receives HTTP requests, delegates to the Service, and returns responses.</p>
 <p><strong>File:</strong> <code>handler/news.go</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">handler</span>
@@ -309,7 +363,7 @@
 <li>Calls the Service to fetch data.</li>
 <li>Returns JSON with proper HTTP status codes.</li>
 </ol>
-<h2 id="router-setup">Router Setup</h2>
+<h2 id="5-router-setup">5. Router Setup</h2>
 <p>The <strong>Router</strong> ties everything together.</p>
 <p><strong>File:</strong> <code>router.go</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">router</span>
@@ -338,7 +392,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>👉 Dependencies are wired explicitly:
 <code>Model → Service → Handler → Router</code>.</p>
-<h2 id="adding-a-new-api-step-by-step">Adding a New API (Step-by-Step)</h2>
+<h2 id="6-adding-a-new-api-step-by-step">6. Adding a New API (Step-by-Step)</h2>
 <p>When adding a new API endpoint, follow these steps:</p>
 <ol>
 <li>
@@ -370,7 +424,7 @@
 </li>
 </ol>
 <p>This structure keeps data access, business logic, and request handling <strong>cleanly separated</strong>.</p>
-<h2 id="summary">Summary</h2>
+<h2 id="7-summary">7. Summary</h2>
 <p>We built a simple <strong>news API</strong> in Go using Gin and GORM with a layered architecture:</p>
 <ul>
 <li><strong>Model</strong>: Defines database schema and queries.</li>

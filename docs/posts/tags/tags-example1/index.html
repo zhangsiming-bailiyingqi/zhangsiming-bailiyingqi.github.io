@@ -188,7 +188,52 @@
   
   <article class="post amimate">
 
+	<style>
+	 
+	#TableOfContents ul {
+	  list-style: none;     
+	  padding-left: 0;      
+	  margin: 0;
+	}
+	#TableOfContents li {
+	  margin: .4em 0;       
+	  line-height: 1.5;
+	}
+	#TableOfContents ul ul {
+	  margin-left: 1.2em;   
+	  padding-left: .8em;
+	  border-left: 2px solid #eee;  
+	}
+	#TableOfContents ul ul li {
+	  font-size: .95em;     
+	}
+	#TableOfContents ul ul ul li {
+	  font-size: .9em;      
+	  color: #555;          
+	}
+    .page__toc {
+      margin-bottom: 2rem;   
+    }
+    .post__content pre {
+      overflow-x: auto;      
+      white-space: pre;      
+      padding: 1rem;
+      border-radius: 6px;
+      margin: 1.5rem 0;
+    }
+    
+    .post__content code {
+      font-family: Menlo, Monaco, Consolas, monospace;
+      font-size: 0.9em;
+    }
+    
+  	</style>
+		
     <div class="post__content">
+      <div class="page__toc">
+        <h2 class="page__toc__title">Table of Contents</h2>
+        <nav id="TableOfContents"></nav>
+      </div>
       
     </div>
 

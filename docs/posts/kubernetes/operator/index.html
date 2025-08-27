@@ -188,18 +188,87 @@
   
   <article class="post amimate">
 
+	<style>
+	 
+	#TableOfContents ul {
+	  list-style: none;     
+	  padding-left: 0;      
+	  margin: 0;
+	}
+	#TableOfContents li {
+	  margin: .4em 0;       
+	  line-height: 1.5;
+	}
+	#TableOfContents ul ul {
+	  margin-left: 1.2em;   
+	  padding-left: .8em;
+	  border-left: 2px solid #eee;  
+	}
+	#TableOfContents ul ul li {
+	  font-size: .95em;     
+	}
+	#TableOfContents ul ul ul li {
+	  font-size: .9em;      
+	  color: #555;          
+	}
+    .page__toc {
+      margin-bottom: 2rem;   
+    }
+    .post__content pre {
+      overflow-x: auto;      
+      white-space: pre;      
+      padding: 1rem;
+      border-radius: 6px;
+      margin: 1.5rem 0;
+    }
+    
+    .post__content code {
+      font-family: Menlo, Monaco, Consolas, monospace;
+      font-size: 0.9em;
+    }
+    
+  	</style>
+		
     <div class="post__content">
-      <h2 id="introduction">Introduction</h2>
+      <div class="page__toc">
+        <h2 class="page__toc__title">Table of Contents</h2>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-introduction">1. Introduction</a></li>
+    <li><a href="#2-why-operators">2. Why Operators?</a></li>
+    <li><a href="#3-core-concepts">3. Core Concepts</a>
+      <ul>
+        <li><a href="#31-custom-resource-cr-and-custom-resource-definition-crd">3.1 Custom Resource (CR) and Custom Resource Definition (CRD)</a></li>
+        <li><a href="#32-controller">3.2 Controller</a></li>
+        <li><a href="#33-informer">3.3 Informer</a></li>
+        <li><a href="#34-rbac">3.4 RBAC</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-setting-up-kubebuilder">4. Setting Up Kubebuilder</a></li>
+    <li><a href="#5-project-initialization">5. Project Initialization</a></li>
+    <li><a href="#6-defining-the-mysql-crd">6. Defining the MySQL CRD</a></li>
+    <li><a href="#7-writing-the-controller">7. Writing the Controller</a></li>
+    <li><a href="#8-deploying-the-operator">8. Deploying the Operator</a>
+      <ul>
+        <li><a href="#81-build-and-push-image">8.1 Build and Push Image</a></li>
+        <li><a href="#82-deploy-crd-rbac-manager">8.2 Deploy CRD, RBAC, Manager</a></li>
+        <li><a href="#83-test-with-a-cr">8.3 Test With a CR</a></li>
+      </ul>
+    </li>
+    <li><a href="#9-summary">9. Summary</a></li>
+  </ul>
+</nav>
+      </div>
+      <h2 id="1-introduction">1. Introduction</h2>
 <p>A <strong>Kubernetes Operator</strong> is an advanced controller that automates the management of complex applications. Instead of relying on humans to perform tasks such as deployment, scaling, and backup, an Operator encodes operational knowledge directly into Kubernetes.</p>
 <p>This guide provides a step-by-step walkthrough for building a simple <strong>MySQL Operator</strong> with <a href="https://github.com/kubernetes-sigs/kubebuilder">Kubebuilder</a>. It is written for beginners and includes full code samples and explanations.</p>
-<h2 id="why-operators">Why Operators?</h2>
+<h2 id="2-why-operators">2. Why Operators?</h2>
 <ul>
 <li><strong>Automation</strong>: Routine tasks (create, scale, backup) are automated.</li>
 <li><strong>Consistency</strong>: Applications always converge to the desired state.</li>
 <li><strong>Declarative management</strong>: Users describe intent in a Custom Resource (CR), and the Operator ensures the system matches.</li>
 </ul>
-<h2 id="core-concepts">Core Concepts</h2>
-<p><img src="/images/operator-operator.png" alt=""></p>
+<h2 id="3-core-concepts">3. Core Concepts</h2>
 <h3 id="31-custom-resource-cr-and-custom-resource-definition-crd">3.1 Custom Resource (CR) and Custom Resource Definition (CRD)</h3>
 <ul>
 <li><strong>CRD</strong>: Extends the Kubernetes API by defining a new resource type (e.g., <code>MySQL</code>).</li>
@@ -223,7 +292,7 @@
 </ul>
 <h3 id="34-rbac">3.4 RBAC</h3>
 <p>Operators need <strong>permissions</strong> to create and manage resources. RBAC ensures only the required actions are allowed. We will define <code>ClusterRole</code> and <code>ClusterRoleBinding</code> for our Operator.</p>
-<h2 id="setting-up-kubebuilder">Setting Up Kubebuilder</h2>
+<h2 id="4-setting-up-kubebuilder">4. Setting Up Kubebuilder</h2>
 <p>Install Kubebuilder:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget -c https://github.com/kubernetes-sigs/kubebuilder/releases/download/v4.2.0/kubebuilder_darwin_amd64
 </span></span><span class="line"><span class="cl">mv kubebuilder_darwin_amd64 /usr/local/bin/kubebuilder
@@ -232,7 +301,7 @@
 </span></span><span class="line"><span class="cl">kubebuilder version
 </span></span></code></pre></div><p>Example output:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Version: main.version{KubeBuilderVersion:&#34;4.2.0&#34;, KubernetesVendor:&#34;1.31.0&#34;, ...}
-</span></span></code></pre></div><h2 id="project-initialization">Project Initialization</h2>
+</span></span></code></pre></div><h2 id="5-project-initialization">5. Project Initialization</h2>
 <p>Create a new Operator project:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubebuilder init --domain siming.com --repo github.com/ZhangSiming-blyq/mysql-operator
 </span></span></code></pre></div><p>Then create a custom API for MySQL:</p>
@@ -242,7 +311,7 @@
 <li><code>api/v1/mysql_types.go</code> — CRD schema</li>
 <li><code>controllers/mysql_controller.go</code> — Controller skeleton</li>
 </ul>
-<h2 id="defining-the-mysql-crd">Defining the MySQL CRD</h2>
+<h2 id="6-defining-the-mysql-crd">6. Defining the MySQL CRD</h2>
 <p>File: <strong>api/v1/mysql_types.go</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">v1</span>
 </span></span><span class="line"><span class="cl">
@@ -297,7 +366,7 @@
 <p>Generate supporting code:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">make generate
 </span></span><span class="line"><span class="cl">make manifests
-</span></span></code></pre></div><h2 id="writing-the-controller">Writing the Controller</h2>
+</span></span></code></pre></div><h2 id="7-writing-the-controller">7. Writing the Controller</h2>
 <p>File: <strong>controllers/mysql_controller.go</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">controller</span>
 </span></span><span class="line"><span class="cl">
@@ -439,7 +508,7 @@
 <li><strong>Status update</strong> — write back runtime state to CR status.</li>
 </ol>
 <p>This is the core reconciliation logic.</p>
-<h2 id="deploying-the-operator">Deploying the Operator</h2>
+<h2 id="8-deploying-the-operator">8. Deploying the Operator</h2>
 <h3 id="81-build-and-push-image">8.1 Build and Push Image</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">make docker-build <span class="nv">IMG</span><span class="o">=</span>myregistry/mysql-operator:v1.0.0
 </span></span><span class="line"><span class="cl">make docker-push <span class="nv">IMG</span><span class="o">=</span>myregistry/mysql-operator:v1.0.0
@@ -470,7 +539,7 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl apply -f config/samples/apps_v1_mysql.yaml
 </span></span><span class="line"><span class="cl">kubectl get pods
 </span></span></code></pre></div><p>You should see Pods managed by the Operator. Scaling is automatic if you update <code>spec.size</code>.</p>
-<h2 id="summary">Summary</h2>
+<h2 id="9-summary">9. Summary</h2>
 <ul>
 <li>Operators extend Kubernetes with custom APIs.</li>
 <li>Controllers reconcile desired vs. actual state.</li>

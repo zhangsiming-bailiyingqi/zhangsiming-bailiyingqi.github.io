@@ -188,9 +188,65 @@
   
   <article class="post amimate">
 
+	<style>
+	 
+	#TableOfContents ul {
+	  list-style: none;     
+	  padding-left: 0;      
+	  margin: 0;
+	}
+	#TableOfContents li {
+	  margin: .4em 0;       
+	  line-height: 1.5;
+	}
+	#TableOfContents ul ul {
+	  margin-left: 1.2em;   
+	  padding-left: .8em;
+	  border-left: 2px solid #eee;  
+	}
+	#TableOfContents ul ul li {
+	  font-size: .95em;     
+	}
+	#TableOfContents ul ul ul li {
+	  font-size: .9em;      
+	  color: #555;          
+	}
+    .page__toc {
+      margin-bottom: 2rem;   
+    }
+    .post__content pre {
+      overflow-x: auto;      
+      white-space: pre;      
+      padding: 1rem;
+      border-radius: 6px;
+      margin: 1.5rem 0;
+    }
+    
+    .post__content code {
+      font-family: Menlo, Monaco, Consolas, monospace;
+      font-size: 0.9em;
+    }
+    
+  	</style>
+		
     <div class="post__content">
+      <div class="page__toc">
+        <h2 class="page__toc__title">Table of Contents</h2>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-what-is-a-closure">1. What Is a Closure?</a></li>
+    <li><a href="#2-basic-example-in-go">2. Basic Example in Go</a></li>
+    <li><a href="#3-anonymous-functions-as-closures">3. Anonymous Functions as Closures</a></li>
+    <li><a href="#4-modifying-the-closure-environment">4. Modifying the Closure Environment</a></li>
+    <li><a href="#5-external-modification-of-closure-state">5. External Modification of Closure State</a></li>
+    <li><a href="#6-delayed-binding-pitfall">6. Delayed Binding Pitfall</a></li>
+    <li><a href="#7-closures-in-concurrency">7. Closures in Concurrency</a></li>
+    <li><a href="#8-summary">8. Summary</a></li>
+  </ul>
+</nav>
+      </div>
       <p>Closures are a fundamental concept in many programming languages, including Go and Python. This article provides a clear explanation of what closures are, how they work in Go, and some common pitfalls developers should be aware of.</p>
-<h2 id="what-is-a-closure">What Is a Closure?</h2>
+<h2 id="1-what-is-a-closure">1. What Is a Closure?</h2>
 <p>A closure is a function bundled together with its surrounding environment. It consists of two elements:</p>
 <ol>
 <li><strong>Function</strong> – the inner function returned by an outer function. This can be a named function, an anonymous function, or a lambda expression.</li>
@@ -199,7 +255,7 @@
 <p>In practice, closures allow functions to retain access to variables that were in scope when the function was defined—even if those variables are no longer available in the current call stack.</p>
 <blockquote>
 <p>Yes — in Go, <strong>captured variables can &ldquo;escape&rdquo; from the stack to the heap</strong> so that their lifetime extends beyond the function call that originally created them.</p></blockquote>
-<h2 id="basic-example-in-go">Basic Example in Go</h2>
+<h2 id="2-basic-example-in-go">2. Basic Example in Go</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
@@ -224,7 +280,7 @@
 </span></span><span class="line"><span class="cl">1
 </span></span><span class="line"><span class="cl">3
 </span></span></code></pre></div><p>Here, <code>a</code> is a closure. The inner function <code>func(v int)</code> is bound to the environment where <code>x</code> was defined. Even though <code>outer</code> has returned, the closure retains access to <code>x</code>.</p>
-<h2 id="anonymous-functions-as-closures">Anonymous Functions as Closures</h2>
+<h2 id="3-anonymous-functions-as-closures">3. Anonymous Functions as Closures</h2>
 <p>Anonymous functions in Go frequently form closures, capturing variables from the surrounding scope:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
 </span></span><span class="line"><span class="cl">
@@ -260,7 +316,7 @@
 </span></span></code></pre></div><p><strong>Output:</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">2
 </span></span></code></pre></div><p>The deferred anonymous function closes over <code>y</code>, printing its value when the function returns.</p>
-<h2 id="modifying-the-closure-environment">Modifying the Closure Environment</h2>
+<h2 id="4-modifying-the-closure-environment">4. Modifying the Closure Environment</h2>
 <p>Since closures capture variables by reference, they can <strong>mutate captured state</strong>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
 </span></span><span class="line"><span class="cl">
@@ -286,7 +342,7 @@
 </span></span><span class="line"><span class="cl">1.5
 </span></span><span class="line"><span class="cl">2
 </span></span></code></pre></div><p>The closure maintains and updates <code>count</code> and <code>total</code> across calls.</p>
-<h2 id="external-modification-of-closure-state">External Modification of Closure State</h2>
+<h2 id="5-external-modification-of-closure-state">5. External Modification of Closure State</h2>
 <p>Closures can also capture <strong>pointers</strong> to variables, allowing modifications from outside:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
 </span></span><span class="line"><span class="cl">
@@ -320,7 +376,7 @@
 <li><code>foo1</code> captures a pointer to <code>x</code>. Changes are reflected globally.</li>
 <li><code>foo2</code> captures a copy. Changes remain local to the closure.</li>
 </ul>
-<h2 id="delayed-binding-pitfall">Delayed Binding Pitfall</h2>
+<h2 id="6-delayed-binding-pitfall">6. Delayed Binding Pitfall</h2>
 <p>One common issue in Go is that closures capture variables, not their values. In loops, this often leads to unexpected results:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
 </span></span><span class="line"><span class="cl">
@@ -356,7 +412,7 @@
 </span></span><span class="line"><span class="cl">2
 </span></span><span class="line"><span class="cl">...
 </span></span><span class="line"><span class="cl">9
-</span></span></code></pre></div><h2 id="closures-in-concurrency">Closures in Concurrency</h2>
+</span></span></code></pre></div><h2 id="7-closures-in-concurrency">7. Closures in Concurrency</h2>
 <p>Anonymous functions within goroutines can exhibit similar pitfalls:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">val</span> <span class="o">:=</span> <span class="k">range</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
@@ -370,7 +426,7 @@
 </span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}(</span><span class="nx">val</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="summary">Summary</h2>
+</span></span></code></pre></div><h2 id="8-summary">8. Summary</h2>
 <ul>
 <li>A <strong>closure</strong> is a function plus the environment it captures.</li>
 <li>Go closures capture variables by reference, not by value.</li>
